@@ -1,4 +1,4 @@
-import 'package:citadel_demo_flutter/providers/products_state.dart';
+import 'package:truv_demo_flutter/providers/products_state.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

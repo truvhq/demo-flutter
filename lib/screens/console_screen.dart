@@ -1,5 +1,5 @@
-import 'package:citadel_demo_flutter/providers/console_state.dart';
-import 'package:citadel_demo_flutter/widgets/title.dart';
+import 'package:truv_demo_flutter/providers/console_state.dart';
+import 'package:truv_demo_flutter/widgets/title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

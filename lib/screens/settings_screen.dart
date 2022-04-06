@@ -1,6 +1,6 @@
-import 'package:citadel_demo_flutter/providers/settings_state.dart';
-import 'package:citadel_demo_flutter/widgets/password_field.dart';
-import 'package:citadel_demo_flutter/widgets/title.dart';
+import 'package:truv_demo_flutter/providers/settings_state.dart';
+import 'package:truv_demo_flutter/widgets/password_field.dart';
+import 'package:truv_demo_flutter/widgets/title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

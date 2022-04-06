@@ -1,4 +1,4 @@
-package com.example.citadel_demo_flutter
+package com.truv.flutter
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -5,12 +5,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "citadel_demo_flutter",
+      "name": "truv_demo_flutter",
       "request": "launch",
       "type": "dart"
     },
     {
-      "name": "citadel_demo_flutter (profile mode)",
+      "name": "truv_demo_flutter (profile mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "profile"

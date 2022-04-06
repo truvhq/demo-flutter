@@ -1,7 +1,7 @@
-import 'package:citadel_demo_flutter/screens/console_screen.dart';
-import 'package:citadel_demo_flutter/screens/product_screen.dart';
-import 'package:citadel_demo_flutter/screens/settings_screen.dart';
-import 'package:citadel_demo_flutter/tabs.dart';
+import 'package:truv_demo_flutter/screens/console_screen.dart';
+import 'package:truv_demo_flutter/screens/product_screen.dart';
+import 'package:truv_demo_flutter/screens/settings_screen.dart';
+import 'package:truv_demo_flutter/tabs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
@@ -23,7 +23,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'CitadelAPI Demo',
+      title: 'Truv Demo',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         primarySwatch: Colors.green,

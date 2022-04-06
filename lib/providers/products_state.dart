@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:citadel_demo_flutter/providers/console_state.dart';
-import 'package:citadel_demo_flutter/providers/settings_state.dart';
+import 'package:truv_demo_flutter/providers/console_state.dart';
+import 'package:truv_demo_flutter/providers/settings_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:http/http.dart' as http;

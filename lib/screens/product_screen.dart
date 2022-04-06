@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:citadel_demo_flutter/providers/console_state.dart';
-import 'package:citadel_demo_flutter/providers/products_state.dart';
-import 'package:citadel_demo_flutter/providers/settings_state.dart';
-import 'package:citadel_demo_flutter/widgets/additional_settings.dart';
-import 'package:citadel_demo_flutter/widgets/title.dart';
-import 'package:citadel_demo_flutter/widgets/webview.dart';
+import 'package:truv_demo_flutter/providers/console_state.dart';
+import 'package:truv_demo_flutter/providers/products_state.dart';
+import 'package:truv_demo_flutter/providers/settings_state.dart';
+import 'package:truv_demo_flutter/widgets/additional_settings.dart';
+import 'package:truv_demo_flutter/widgets/title.dart';
+import 'package:truv_demo_flutter/widgets/webview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -45,9 +45,9 @@ class _ProductScreenState extends ConsumerState {
       barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Can’t open Citadel Bridge'),
+          title: const Text('Can’t open Truv Bridge'),
           content: const Text(
-              'Add a key or change the environment in the settings to run Citadel Bridge.'),
+              'Add a key or change the environment in the settings to run Truv Bridge.'),
           actions: <Widget>[
             TextButton(
               child: Text('Open settings'.toUpperCase()),
@@ -165,7 +165,7 @@ class _ProductScreenState extends ConsumerState {
                             isWidgetOpened = true;
                           });
                         },
-                        child: Text('Open citadel bridge'.toUpperCase()),
+                        child: Text('Open Truv Bridge'.toUpperCase()),
                       )
                     ],
                   ),
