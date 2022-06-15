@@ -5,7 +5,7 @@ import 'package:truv_demo_flutter/providers/products_state.dart';
 import 'package:truv_demo_flutter/providers/settings_state.dart';
 import 'package:truv_demo_flutter/widgets/additional_settings.dart';
 import 'package:truv_demo_flutter/widgets/title.dart';
-import 'package:truv_demo_flutter/widgets/webview.dart';
+import 'package:truv_flutter/truv_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,7 +17,7 @@ class ProductScreen extends ConsumerStatefulWidget {
 }
 
 class _ProductScreenState extends ConsumerState {
-  bool isWidgetOpened = false;
+  bool isBridgeOpened = false;
   final depositValueController = TextEditingController();
 
   @override
@@ -32,7 +32,7 @@ class _ProductScreenState extends ConsumerState {
     Map<String, dynamic> event = jsonDecode(log);
     if (event['event'] == 'onClose' || event['event'] == 'onSuccess') {
       setState(() {
-        isWidgetOpened = false;
+        isBridgeOpened = false;
       });
     }
 
@@ -70,11 +70,10 @@ class _ProductScreenState extends ConsumerState {
       depositValueController.text = state.account.depositValue.toString();
     }
 
-    return isWidgetOpened
-        ? ProductWebview(
+    return isBridgeOpened
+        ? TruvBridge(
             bridgeToken: state.bridgeToken,
             onEvent: onEvent,
-            opened: isWidgetOpened,
           )
         : Container(
             padding: const EdgeInsets.all(12.0),
@@ -162,7 +161,7 @@ class _ProductScreenState extends ConsumerState {
                           }
 
                           setState(() {
-                            isWidgetOpened = true;
+                            isBridgeOpened = true;
                           });
                         },
                         child: Text('Open Truv Bridge'.toUpperCase()),
