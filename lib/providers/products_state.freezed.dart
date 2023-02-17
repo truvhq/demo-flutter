@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'products_state.dart';
 
@@ -12,42 +12,28 @@ part of 'products_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-/// @nodoc
-class _$AccountTearOff {
-  const _$AccountTearOff();
-
-  _Account call(
-      {String routingNumber = '1234556',
-      String accountNumber = '21234234',
-      String bankName = 'TD Bank',
-      String accountType = 'checking',
-      String depositType = 'amount',
-      int depositValue = 1}) {
-    return _Account(
-      routingNumber: routingNumber,
-      accountNumber: accountNumber,
-      bankName: bankName,
-      accountType: accountType,
-      depositType: depositType,
-      depositValue: depositValue,
-    );
-  }
+Account _$AccountFromJson(Map<String, dynamic> json) {
+  return _Account.fromJson(json);
 }
 
 /// @nodoc
-const $Account = _$AccountTearOff();
-
-/// @nodoc
 mixin _$Account {
+  @JsonKey(name: 'routing_number')
   String get routingNumber => throw _privateConstructorUsedError;
+  @JsonKey(name: 'account_number')
   String get accountNumber => throw _privateConstructorUsedError;
+  @JsonKey(name: 'bank_name')
   String get bankName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'account_type')
   String get accountType => throw _privateConstructorUsedError;
+  @JsonKey(name: 'deposit_type')
   String get depositType => throw _privateConstructorUsedError;
+  @JsonKey(name: 'deposit_value')
   int get depositValue => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AccountCopyWith<Account> get copyWith => throw _privateConstructorUsedError;
 }
@@ -55,116 +41,121 @@ mixin _$Account {
 /// @nodoc
 abstract class $AccountCopyWith<$Res> {
   factory $AccountCopyWith(Account value, $Res Function(Account) then) =
-      _$AccountCopyWithImpl<$Res>;
+      _$AccountCopyWithImpl<$Res, Account>;
+  @useResult
   $Res call(
-      {String routingNumber,
-      String accountNumber,
-      String bankName,
-      String accountType,
-      String depositType,
-      int depositValue});
+      {@JsonKey(name: 'routing_number') String routingNumber,
+      @JsonKey(name: 'account_number') String accountNumber,
+      @JsonKey(name: 'bank_name') String bankName,
+      @JsonKey(name: 'account_type') String accountType,
+      @JsonKey(name: 'deposit_type') String depositType,
+      @JsonKey(name: 'deposit_value') int depositValue});
 }
 
 /// @nodoc
-class _$AccountCopyWithImpl<$Res> implements $AccountCopyWith<$Res> {
+class _$AccountCopyWithImpl<$Res, $Val extends Account>
+    implements $AccountCopyWith<$Res> {
   _$AccountCopyWithImpl(this._value, this._then);
 
-  final Account _value;
   // ignore: unused_field
-  final $Res Function(Account) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? routingNumber = freezed,
-    Object? accountNumber = freezed,
-    Object? bankName = freezed,
-    Object? accountType = freezed,
-    Object? depositType = freezed,
-    Object? depositValue = freezed,
+    Object? routingNumber = null,
+    Object? accountNumber = null,
+    Object? bankName = null,
+    Object? accountType = null,
+    Object? depositType = null,
+    Object? depositValue = null,
   }) {
     return _then(_value.copyWith(
-      routingNumber: routingNumber == freezed
+      routingNumber: null == routingNumber
           ? _value.routingNumber
           : routingNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      accountNumber: accountNumber == freezed
+      accountNumber: null == accountNumber
           ? _value.accountNumber
           : accountNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      bankName: bankName == freezed
+      bankName: null == bankName
           ? _value.bankName
           : bankName // ignore: cast_nullable_to_non_nullable
               as String,
-      accountType: accountType == freezed
+      accountType: null == accountType
           ? _value.accountType
           : accountType // ignore: cast_nullable_to_non_nullable
               as String,
-      depositType: depositType == freezed
+      depositType: null == depositType
           ? _value.depositType
           : depositType // ignore: cast_nullable_to_non_nullable
               as String,
-      depositValue: depositValue == freezed
+      depositValue: null == depositValue
           ? _value.depositValue
           : depositValue // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
-  factory _$AccountCopyWith(_Account value, $Res Function(_Account) then) =
-      __$AccountCopyWithImpl<$Res>;
+abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
+  factory _$$_AccountCopyWith(
+          _$_Account value, $Res Function(_$_Account) then) =
+      __$$_AccountCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
-      {String routingNumber,
-      String accountNumber,
-      String bankName,
-      String accountType,
-      String depositType,
-      int depositValue});
+      {@JsonKey(name: 'routing_number') String routingNumber,
+      @JsonKey(name: 'account_number') String accountNumber,
+      @JsonKey(name: 'bank_name') String bankName,
+      @JsonKey(name: 'account_type') String accountType,
+      @JsonKey(name: 'deposit_type') String depositType,
+      @JsonKey(name: 'deposit_value') int depositValue});
 }
 
 /// @nodoc
-class __$AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res>
-    implements _$AccountCopyWith<$Res> {
-  __$AccountCopyWithImpl(_Account _value, $Res Function(_Account) _then)
-      : super(_value, (v) => _then(v as _Account));
+class __$$_AccountCopyWithImpl<$Res>
+    extends _$AccountCopyWithImpl<$Res, _$_Account>
+    implements _$$_AccountCopyWith<$Res> {
+  __$$_AccountCopyWithImpl(_$_Account _value, $Res Function(_$_Account) _then)
+      : super(_value, _then);
 
-  @override
-  _Account get _value => super._value as _Account;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? routingNumber = freezed,
-    Object? accountNumber = freezed,
-    Object? bankName = freezed,
-    Object? accountType = freezed,
-    Object? depositType = freezed,
-    Object? depositValue = freezed,
+    Object? routingNumber = null,
+    Object? accountNumber = null,
+    Object? bankName = null,
+    Object? accountType = null,
+    Object? depositType = null,
+    Object? depositValue = null,
   }) {
-    return _then(_Account(
-      routingNumber: routingNumber == freezed
+    return _then(_$_Account(
+      routingNumber: null == routingNumber
           ? _value.routingNumber
           : routingNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      accountNumber: accountNumber == freezed
+      accountNumber: null == accountNumber
           ? _value.accountNumber
           : accountNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      bankName: bankName == freezed
+      bankName: null == bankName
           ? _value.bankName
           : bankName // ignore: cast_nullable_to_non_nullable
               as String,
-      accountType: accountType == freezed
+      accountType: null == accountType
           ? _value.accountType
           : accountType // ignore: cast_nullable_to_non_nullable
               as String,
-      depositType: depositType == freezed
+      depositType: null == depositType
           ? _value.depositType
           : depositType // ignore: cast_nullable_to_non_nullable
               as String,
-      depositValue: depositValue == freezed
+      depositValue: null == depositValue
           ? _value.depositValue
           : depositValue // ignore: cast_nullable_to_non_nullable
               as int,
@@ -173,34 +164,36 @@ class __$AccountCopyWithImpl<$Res> extends _$AccountCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-class _$_Account extends _Account {
+@JsonSerializable()
+class _$_Account implements _Account {
   _$_Account(
-      {this.routingNumber = '1234556',
-      this.accountNumber = '21234234',
-      this.bankName = 'TD Bank',
-      this.accountType = 'checking',
-      this.depositType = 'amount',
-      this.depositValue = 1})
-      : super._();
+      {@JsonKey(name: 'routing_number') this.routingNumber = '1234556',
+      @JsonKey(name: 'account_number') this.accountNumber = '21234234',
+      @JsonKey(name: 'bank_name') this.bankName = 'TD Bank',
+      @JsonKey(name: 'account_type') this.accountType = 'checking',
+      @JsonKey(name: 'deposit_type') this.depositType = 'amount',
+      @JsonKey(name: 'deposit_value') this.depositValue = 1});
 
-  @JsonKey()
+  factory _$_Account.fromJson(Map<String, dynamic> json) =>
+      _$$_AccountFromJson(json);
+
   @override
+  @JsonKey(name: 'routing_number')
   final String routingNumber;
-  @JsonKey()
   @override
+  @JsonKey(name: 'account_number')
   final String accountNumber;
-  @JsonKey()
   @override
+  @JsonKey(name: 'bank_name')
   final String bankName;
-  @JsonKey()
   @override
+  @JsonKey(name: 'account_type')
   final String accountType;
-  @JsonKey()
   @override
+  @JsonKey(name: 'deposit_type')
   final String depositType;
-  @JsonKey()
   @override
+  @JsonKey(name: 'deposit_value')
   final int depositValue;
 
   @override
@@ -212,86 +205,74 @@ class _$_Account extends _Account {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Account &&
-            const DeepCollectionEquality()
-                .equals(other.routingNumber, routingNumber) &&
-            const DeepCollectionEquality()
-                .equals(other.accountNumber, accountNumber) &&
-            const DeepCollectionEquality().equals(other.bankName, bankName) &&
-            const DeepCollectionEquality()
-                .equals(other.accountType, accountType) &&
-            const DeepCollectionEquality()
-                .equals(other.depositType, depositType) &&
-            const DeepCollectionEquality()
-                .equals(other.depositValue, depositValue));
+            other is _$_Account &&
+            (identical(other.routingNumber, routingNumber) ||
+                other.routingNumber == routingNumber) &&
+            (identical(other.accountNumber, accountNumber) ||
+                other.accountNumber == accountNumber) &&
+            (identical(other.bankName, bankName) ||
+                other.bankName == bankName) &&
+            (identical(other.accountType, accountType) ||
+                other.accountType == accountType) &&
+            (identical(other.depositType, depositType) ||
+                other.depositType == depositType) &&
+            (identical(other.depositValue, depositValue) ||
+                other.depositValue == depositValue));
   }
 
+  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(routingNumber),
-      const DeepCollectionEquality().hash(accountNumber),
-      const DeepCollectionEquality().hash(bankName),
-      const DeepCollectionEquality().hash(accountType),
-      const DeepCollectionEquality().hash(depositType),
-      const DeepCollectionEquality().hash(depositValue));
+  int get hashCode => Object.hash(runtimeType, routingNumber, accountNumber,
+      bankName, accountType, depositType, depositValue);
 
   @JsonKey(ignore: true)
   @override
-  _$AccountCopyWith<_Account> get copyWith =>
-      __$AccountCopyWithImpl<_Account>(this, _$identity);
-}
-
-abstract class _Account extends Account {
-  factory _Account(
-      {String routingNumber,
-      String accountNumber,
-      String bankName,
-      String accountType,
-      String depositType,
-      int depositValue}) = _$_Account;
-  _Account._() : super._();
+  @pragma('vm:prefer-inline')
+  _$$_AccountCopyWith<_$_Account> get copyWith =>
+      __$$_AccountCopyWithImpl<_$_Account>(this, _$identity);
 
   @override
-  String get routingNumber;
-  @override
-  String get accountNumber;
-  @override
-  String get bankName;
-  @override
-  String get accountType;
-  @override
-  String get depositType;
-  @override
-  int get depositValue;
-  @override
-  @JsonKey(ignore: true)
-  _$AccountCopyWith<_Account> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-class _$ProductTearOff {
-  const _$ProductTearOff();
-
-  _Product call(
-      {String bridgeToken = '',
-      ProductType productType = ProductType.income,
-      String companyMapping = '',
-      String provider = '',
-      required Account account}) {
-    return _Product(
-      bridgeToken: bridgeToken,
-      productType: productType,
-      companyMapping: companyMapping,
-      provider: provider,
-      account: account,
+  Map<String, dynamic> toJson() {
+    return _$$_AccountToJson(
+      this,
     );
   }
 }
 
-/// @nodoc
-const $Product = _$ProductTearOff();
+abstract class _Account implements Account {
+  factory _Account(
+      {@JsonKey(name: 'routing_number') final String routingNumber,
+      @JsonKey(name: 'account_number') final String accountNumber,
+      @JsonKey(name: 'bank_name') final String bankName,
+      @JsonKey(name: 'account_type') final String accountType,
+      @JsonKey(name: 'deposit_type') final String depositType,
+      @JsonKey(name: 'deposit_value') final int depositValue}) = _$_Account;
+
+  factory _Account.fromJson(Map<String, dynamic> json) = _$_Account.fromJson;
+
+  @override
+  @JsonKey(name: 'routing_number')
+  String get routingNumber;
+  @override
+  @JsonKey(name: 'account_number')
+  String get accountNumber;
+  @override
+  @JsonKey(name: 'bank_name')
+  String get bankName;
+  @override
+  @JsonKey(name: 'account_type')
+  String get accountType;
+  @override
+  @JsonKey(name: 'deposit_type')
+  String get depositType;
+  @override
+  @JsonKey(name: 'deposit_value')
+  int get depositValue;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AccountCopyWith<_$_Account> get copyWith =>
+      throw _privateConstructorUsedError;
+}
 
 /// @nodoc
 mixin _$Product {
@@ -308,7 +289,8 @@ mixin _$Product {
 /// @nodoc
 abstract class $ProductCopyWith<$Res> {
   factory $ProductCopyWith(Product value, $Res Function(Product) then) =
-      _$ProductCopyWithImpl<$Res>;
+      _$ProductCopyWithImpl<$Res, Product>;
+  @useResult
   $Res call(
       {String bridgeToken,
       ProductType productType,
@@ -320,58 +302,64 @@ abstract class $ProductCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
+class _$ProductCopyWithImpl<$Res, $Val extends Product>
+    implements $ProductCopyWith<$Res> {
   _$ProductCopyWithImpl(this._value, this._then);
 
-  final Product _value;
   // ignore: unused_field
-  final $Res Function(Product) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bridgeToken = freezed,
-    Object? productType = freezed,
-    Object? companyMapping = freezed,
-    Object? provider = freezed,
-    Object? account = freezed,
+    Object? bridgeToken = null,
+    Object? productType = null,
+    Object? companyMapping = null,
+    Object? provider = null,
+    Object? account = null,
   }) {
     return _then(_value.copyWith(
-      bridgeToken: bridgeToken == freezed
+      bridgeToken: null == bridgeToken
           ? _value.bridgeToken
           : bridgeToken // ignore: cast_nullable_to_non_nullable
               as String,
-      productType: productType == freezed
+      productType: null == productType
           ? _value.productType
           : productType // ignore: cast_nullable_to_non_nullable
               as ProductType,
-      companyMapping: companyMapping == freezed
+      companyMapping: null == companyMapping
           ? _value.companyMapping
           : companyMapping // ignore: cast_nullable_to_non_nullable
               as String,
-      provider: provider == freezed
+      provider: null == provider
           ? _value.provider
           : provider // ignore: cast_nullable_to_non_nullable
               as String,
-      account: account == freezed
+      account: null == account
           ? _value.account
           : account // ignore: cast_nullable_to_non_nullable
               as Account,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $AccountCopyWith<$Res> get account {
     return $AccountCopyWith<$Res>(_value.account, (value) {
-      return _then(_value.copyWith(account: value));
+      return _then(_value.copyWith(account: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
-  factory _$ProductCopyWith(_Product value, $Res Function(_Product) then) =
-      __$ProductCopyWithImpl<$Res>;
+abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
+  factory _$$_ProductCopyWith(
+          _$_Product value, $Res Function(_$_Product) then) =
+      __$$_ProductCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String bridgeToken,
       ProductType productType,
@@ -384,40 +372,39 @@ abstract class _$ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
-    implements _$ProductCopyWith<$Res> {
-  __$ProductCopyWithImpl(_Product _value, $Res Function(_Product) _then)
-      : super(_value, (v) => _then(v as _Product));
+class __$$_ProductCopyWithImpl<$Res>
+    extends _$ProductCopyWithImpl<$Res, _$_Product>
+    implements _$$_ProductCopyWith<$Res> {
+  __$$_ProductCopyWithImpl(_$_Product _value, $Res Function(_$_Product) _then)
+      : super(_value, _then);
 
-  @override
-  _Product get _value => super._value as _Product;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bridgeToken = freezed,
-    Object? productType = freezed,
-    Object? companyMapping = freezed,
-    Object? provider = freezed,
-    Object? account = freezed,
+    Object? bridgeToken = null,
+    Object? productType = null,
+    Object? companyMapping = null,
+    Object? provider = null,
+    Object? account = null,
   }) {
-    return _then(_Product(
-      bridgeToken: bridgeToken == freezed
+    return _then(_$_Product(
+      bridgeToken: null == bridgeToken
           ? _value.bridgeToken
           : bridgeToken // ignore: cast_nullable_to_non_nullable
               as String,
-      productType: productType == freezed
+      productType: null == productType
           ? _value.productType
           : productType // ignore: cast_nullable_to_non_nullable
               as ProductType,
-      companyMapping: companyMapping == freezed
+      companyMapping: null == companyMapping
           ? _value.companyMapping
           : companyMapping // ignore: cast_nullable_to_non_nullable
               as String,
-      provider: provider == freezed
+      provider: null == provider
           ? _value.provider
           : provider // ignore: cast_nullable_to_non_nullable
               as String,
-      account: account == freezed
+      account: null == account
           ? _value.account
           : account // ignore: cast_nullable_to_non_nullable
               as Account,
@@ -436,17 +423,17 @@ class _$_Product extends _Product {
       required this.account})
       : super._();
 
-  @JsonKey()
   @override
+  @JsonKey()
   final String bridgeToken;
-  @JsonKey()
   @override
+  @JsonKey()
   final ProductType productType;
-  @JsonKey()
   @override
+  @JsonKey()
   final String companyMapping;
-  @JsonKey()
   @override
+  @JsonKey()
   final String provider;
   @override
   final Account account;
@@ -460,39 +447,36 @@ class _$_Product extends _Product {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Product &&
-            const DeepCollectionEquality()
-                .equals(other.bridgeToken, bridgeToken) &&
-            const DeepCollectionEquality()
-                .equals(other.productType, productType) &&
-            const DeepCollectionEquality()
-                .equals(other.companyMapping, companyMapping) &&
-            const DeepCollectionEquality().equals(other.provider, provider) &&
-            const DeepCollectionEquality().equals(other.account, account));
+            other is _$_Product &&
+            (identical(other.bridgeToken, bridgeToken) ||
+                other.bridgeToken == bridgeToken) &&
+            (identical(other.productType, productType) ||
+                other.productType == productType) &&
+            (identical(other.companyMapping, companyMapping) ||
+                other.companyMapping == companyMapping) &&
+            (identical(other.provider, provider) ||
+                other.provider == provider) &&
+            (identical(other.account, account) || other.account == account));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(bridgeToken),
-      const DeepCollectionEquality().hash(productType),
-      const DeepCollectionEquality().hash(companyMapping),
-      const DeepCollectionEquality().hash(provider),
-      const DeepCollectionEquality().hash(account));
+      runtimeType, bridgeToken, productType, companyMapping, provider, account);
 
   @JsonKey(ignore: true)
   @override
-  _$ProductCopyWith<_Product> get copyWith =>
-      __$ProductCopyWithImpl<_Product>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$_ProductCopyWith<_$_Product> get copyWith =>
+      __$$_ProductCopyWithImpl<_$_Product>(this, _$identity);
 }
 
 abstract class _Product extends Product {
   factory _Product(
-      {String bridgeToken,
-      ProductType productType,
-      String companyMapping,
-      String provider,
-      required Account account}) = _$_Product;
+      {final String bridgeToken,
+      final ProductType productType,
+      final String companyMapping,
+      final String provider,
+      required final Account account}) = _$_Product;
   _Product._() : super._();
 
   @override
@@ -507,6 +491,6 @@ abstract class _Product extends Product {
   Account get account;
   @override
   @JsonKey(ignore: true)
-  _$ProductCopyWith<_Product> get copyWith =>
+  _$$_ProductCopyWith<_$_Product> get copyWith =>
       throw _privateConstructorUsedError;
 }

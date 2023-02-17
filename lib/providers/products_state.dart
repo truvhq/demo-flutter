@@ -1,12 +1,14 @@
-import 'dart:convert';
-
+import 'package:truv_demo_flutter/clients/truv.dart';
 import 'package:truv_demo_flutter/providers/console_state.dart';
-import 'package:truv_demo_flutter/providers/settings_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:http/http.dart' as http;
+import 'package:truv_demo_flutter/providers/settings_state.dart';
+import 'package:uuid/uuid.dart';
+
+import 'api.dart';
 
 part 'products_state.freezed.dart';
+part 'products_state.g.dart';
 
 enum ProductType {
   income,
@@ -19,27 +21,17 @@ enum ProductType {
 
 @freezed
 class Account with _$Account {
-  Account._();
-
   factory Account({
-    @Default('1234556') String routingNumber,
-    @Default('21234234') String accountNumber,
-    @Default('TD Bank') String bankName,
-    @Default('checking') String accountType,
-    @Default('amount') String depositType,
-    @Default(1) int depositValue,
+    @JsonKey(name: 'routing_number') @Default('1234556') String routingNumber,
+    @JsonKey(name: 'account_number') @Default('21234234') String accountNumber,
+    @JsonKey(name: 'bank_name') @Default('TD Bank') String bankName,
+    @JsonKey(name: 'account_type') @Default('checking') String accountType,
+    @JsonKey(name: 'deposit_type') @Default('amount') String depositType,
+    @JsonKey(name: 'deposit_value') @Default(1) int depositValue,
   }) = _Account;
 
-  toMap() {
-    return {
-      'routing_number': routingNumber,
-      'account_number': accountNumber,
-      'bank_name': bankName,
-      'account_type': accountType,
-      'deposit_type': depositType,
-      'deposit_value': depositValue,
-    };
-  }
+  factory Account.fromJson(Map<String, dynamic> json) =>
+      _$AccountFromJson(json);
 }
 
 @freezed
@@ -57,21 +49,20 @@ class Product with _$Product {
   bool get noToken => bridgeToken == '';
 }
 
-class ProductNotifier extends StateNotifier<Product> {
-  final Reader read;
-  ProductNotifier(this.read) : super(Product(account: Account())) {
-    fetchBridgeToken();
+class ProductNotifier extends AutoDisposeNotifier<Product> {
+  ProductNotifier();
+
+  @override
+  build() {
+    return Product(account: Account());
   }
 
   Future<void> fetchBridgeToken() async {
-    final settings = read(settingsProvider);
-    final console = read(consoleProvider.notifier);
+    final apiClient = ref.read(apiClientProvider);
+    final console = ref.read(consoleProvider.notifier);
+    final settingsState = ref.read(settingsProvider);
+    final settingsNotifier = ref.read(settingsProvider.notifier);
 
-    if (!settings.hasCredentials) {
-      return;
-    }
-
-    var url = Uri.parse('https://prod.citadelid.com/v1/bridge-tokens/');
     String product = 'income';
 
     switch (state.productType) {
@@ -93,31 +84,27 @@ class ProductNotifier extends StateNotifier<Product> {
         break;
     }
 
-    var requestBody = jsonEncode({
-      'product_type': product,
-      if (state.provider != '') 'provider_id': state.provider,
-      if (state.companyMapping != '')
-        'company_mapping_id': state.companyMapping,
-      if (product == 'pll' || product == 'deposit_switch')
-        'account': state.account.toMap()
-    });
+    var userId = settingsState.userId;
 
-    var response = await http.post(url, body: requestBody, headers: {
-      'Content-Type': 'application/json',
-      'X-Access-Client-Id': settings.clientId,
-      'X-Access-Secret': settings.key,
-    });
+    if (userId == null || userId == '') {
+      final user = await apiClient.createUser(const Uuid().v4());
+      userId = user.id;
 
-    final responseBody = utf8.decode(response.bodyBytes);
-    var decodedResponse = jsonDecode(responseBody) as Map;
-    console.log('Bridge token response: $responseBody');
-
-    if (!mounted) {
-      print('provider not mounted, returning');
-      return;
+      settingsNotifier.saveUserId(userId);
     }
 
-    state = state.copyWith(bridgeToken: decodedResponse['bridge_token'] ?? '');
+    final response = await apiClient.createBridgeToken(
+        userId,
+        BridgeTokenRequest(
+          product: product,
+          provider: state.provider,
+          companyMapping: state.companyMapping,
+          account: state.account,
+        ));
+
+    console.log('Bridge token response: $response');
+
+    state = state.copyWith(bridgeToken: response.bridgeToken);
   }
 
   void changeProduct(ProductType product) {
@@ -142,14 +129,5 @@ class ProductNotifier extends StateNotifier<Product> {
   }
 }
 
-var productProvider = StateNotifierProvider<ProductNotifier, Product>((ref) {
-  final notifier = ProductNotifier(ref.read);
-
-  ref.listen<Settings>(settingsProvider, (previous, next) {
-    if (previous?.clientId != next.clientId || previous?.key != next.key) {
-      notifier.fetchBridgeToken();
-    }
-  });
-
-  return notifier;
-});
+var productProvider =
+    AutoDisposeNotifierProvider<ProductNotifier, Product>(ProductNotifier.new);
