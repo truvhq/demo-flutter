@@ -22,9 +22,11 @@ class _ProductScreenState extends ConsumerState {
 
   @override
   initState() {
-    if (ref.read(productProvider).noToken) {
+    if (ref.read(productProvider).noToken &&
+        ref.read(settingsProvider).hasCredentials) {
       ref.read(productProvider.notifier).fetchBridgeToken();
     }
+
     super.initState();
   }
 
@@ -66,10 +68,6 @@ class _ProductScreenState extends ConsumerState {
     Product state = ref.watch(productProvider);
     Settings settings = ref.watch(settingsProvider);
 
-    if (depositValueController.text != state.account.depositValue.toString()) {
-      depositValueController.text = state.account.depositValue.toString();
-    }
-
     return isBridgeOpened
         ? TruvBridge(
             bridgeToken: state.bridgeToken,
@@ -98,23 +96,29 @@ class _ProductScreenState extends ConsumerState {
                         },
                         items: const [
                           DropdownMenuItem(
-                              child: Text('Income and Employment'),
-                              value: ProductType.income),
+                            value: ProductType.income,
+                            child: Text('Income and Employment'),
+                          ),
                           DropdownMenuItem(
-                              child: Text('Employment history'),
-                              value: ProductType.employment),
+                            value: ProductType.employment,
+                            child: Text('Employment history'),
+                          ),
                           DropdownMenuItem(
-                              child: Text('Direct deposit switch'),
-                              value: ProductType.dds),
+                            value: ProductType.dds,
+                            child: Text('Direct deposit switch'),
+                          ),
                           DropdownMenuItem(
-                              child: Text('Paycheck linked loan'),
-                              value: ProductType.pll),
+                            value: ProductType.pll,
+                            child: Text('Paycheck linked loan'),
+                          ),
                           DropdownMenuItem(
-                              child: Text('Employee directory'),
-                              value: ProductType.employeeDirectory),
+                            value: ProductType.employeeDirectory,
+                            child: Text('Employee directory'),
+                          ),
                           DropdownMenuItem(
-                              child: Text('Payroll history'),
-                              value: ProductType.payrollHistory),
+                            value: ProductType.payrollHistory,
+                            child: Text('Payroll history'),
+                          ),
                         ],
                       ),
                       if (state.productType == ProductType.dds ||
