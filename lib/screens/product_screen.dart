@@ -5,6 +5,7 @@ import 'package:truv_demo_flutter/providers/products_state.dart';
 import 'package:truv_demo_flutter/providers/settings_state.dart';
 import 'package:truv_demo_flutter/widgets/additional_settings.dart';
 import 'package:truv_demo_flutter/widgets/title.dart';
+import 'package:truv_flutter/event/truv_event.dart';
 import 'package:truv_flutter/truv_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -30,15 +31,14 @@ class _ProductScreenState extends ConsumerState {
     super.initState();
   }
 
-  void onEvent(String log) {
-    Map<String, dynamic> event = jsonDecode(log);
-    if (event['event'] == 'onClose' || event['event'] == 'onSuccess') {
+  void onEvent(TruvEventBase event) {
+    if (event is TruvClose || event is TruvSuccess) {
       setState(() {
         isBridgeOpened = false;
       });
     }
 
-    ref.read(consoleProvider.notifier).log(log);
+    ref.read(consoleProvider.notifier).log(event.toString());
   }
 
   Future<void> showAlert() async {
