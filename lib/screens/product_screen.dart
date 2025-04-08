@@ -5,7 +5,7 @@ import 'package:truv_demo_flutter/providers/products_state.dart';
 import 'package:truv_demo_flutter/providers/settings_state.dart';
 import 'package:truv_demo_flutter/widgets/additional_settings.dart';
 import 'package:truv_demo_flutter/widgets/title.dart';
-import 'package:truv_flutter/event/truv_event.dart';
+import 'package:truv_flutter/truv_event.dart';
 import 'package:truv_flutter/truv_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -32,13 +32,21 @@ class _ProductScreenState extends ConsumerState {
   }
 
   void onEvent(TruvEventBase event) {
-    if (event is TruvClose || event is TruvSuccess) {
+    if (event is TruvEventClose || event is TruvEventSuccess) {
       setState(() {
         isBridgeOpened = false;
       });
     }
 
-    ref.read(consoleProvider.notifier).log(event.toString());
+    String jsonText = '';
+
+    if (event is TruvEventSuccess) {
+      jsonText = jsonEncode(event.toJson());
+    } else if (event is TruvEventEvent) {
+      jsonText = jsonEncode(event.toJson());
+    }
+
+    ref.read(consoleProvider.notifier).log('${event.toString()} $jsonText');
   }
 
   Future<void> showAlert() async {

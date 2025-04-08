@@ -18,8 +18,16 @@ pluginManagement {
 
 plugins {
     id "dev.flutter.flutter-plugin-loader" version "1.0.0"
-    id "com.android.application" version "8.2.1" apply false
+    id "com.android.application" version "8.6.0" apply false
     id "org.jetbrains.kotlin.android" version "1.8.10" apply false
 }
+
+// Uncomment to use local android-sdk
+// includeBuild("../../android-sdk") {
+//     dependencySubstitution {
+//         // Substitute a dependency with a project in the included build
+//         substitute module("com.truv.sdk:android_sdk") using project(":truv_bridge")
+//     }
+// }
 
 include ":app"
