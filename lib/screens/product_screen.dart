@@ -12,7 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ProductScreen extends ConsumerStatefulWidget {
-  const ProductScreen({Key? key}) : super(key: key);
+  const ProductScreen({super.key});
   @override
   createState() => _ProductScreenState();
 }
@@ -31,7 +31,7 @@ class _ProductScreenState extends ConsumerState {
     super.initState();
   }
 
-  void onEvent(TruvEventBase event) {
+  void onEvent(TruvEvent event) {
     if (event is TruvEventClose || event is TruvEventSuccess) {
       setState(() {
         isBridgeOpened = false;
@@ -167,7 +167,7 @@ class _ProductScreenState extends ConsumerState {
                           if (!settings.hasCredentials || state.noToken) {
                             showAlert().whenComplete(
                               () => DefaultTabController.of(context)
-                                  ?.animateTo(2),
+                                  .animateTo(2),
                             );
                             return;
                           }
