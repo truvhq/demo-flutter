@@ -12,7 +12,7 @@ part of 'truv.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 UserResponse _$UserResponseFromJson(Map<String, dynamic> json) {
   return _UserResponse.fromJson(json);
@@ -25,8 +25,12 @@ mixin _$UserResponse {
   @JsonKey(name: 'external_user_id')
   String get externalUserId => throw _privateConstructorUsedError;
 
+  /// Serializes this UserResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UserResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UserResponseCopyWith<UserResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -52,6 +56,8 @@ class _$UserResponseCopyWithImpl<$Res, $Val extends UserResponse>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UserResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -72,11 +78,11 @@ class _$UserResponseCopyWithImpl<$Res, $Val extends UserResponse>
 }
 
 /// @nodoc
-abstract class _$$_UserResponseCopyWith<$Res>
+abstract class _$$UserResponseImplCopyWith<$Res>
     implements $UserResponseCopyWith<$Res> {
-  factory _$$_UserResponseCopyWith(
-          _$_UserResponse value, $Res Function(_$_UserResponse) then) =
-      __$$_UserResponseCopyWithImpl<$Res>;
+  factory _$$UserResponseImplCopyWith(
+          _$UserResponseImpl value, $Res Function(_$UserResponseImpl) then) =
+      __$$UserResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -85,20 +91,22 @@ abstract class _$$_UserResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UserResponseCopyWithImpl<$Res>
-    extends _$UserResponseCopyWithImpl<$Res, _$_UserResponse>
-    implements _$$_UserResponseCopyWith<$Res> {
-  __$$_UserResponseCopyWithImpl(
-      _$_UserResponse _value, $Res Function(_$_UserResponse) _then)
+class __$$UserResponseImplCopyWithImpl<$Res>
+    extends _$UserResponseCopyWithImpl<$Res, _$UserResponseImpl>
+    implements _$$UserResponseImplCopyWith<$Res> {
+  __$$UserResponseImplCopyWithImpl(
+      _$UserResponseImpl _value, $Res Function(_$UserResponseImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = null,
     Object? externalUserId = null,
   }) {
-    return _then(_$_UserResponse(
+    return _then(_$UserResponseImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -113,13 +121,13 @@ class __$$_UserResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UserResponse implements _UserResponse {
-  _$_UserResponse(
+class _$UserResponseImpl implements _UserResponse {
+  _$UserResponseImpl(
       {@JsonKey(name: 'id') required this.id,
       @JsonKey(name: 'external_user_id') required this.externalUserId});
 
-  factory _$_UserResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_UserResponseFromJson(json);
+  factory _$UserResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserResponseImplFromJson(json);
 
   @override
   @JsonKey(name: 'id')
@@ -134,28 +142,30 @@ class _$_UserResponse implements _UserResponse {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UserResponse &&
+            other is _$UserResponseImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.externalUserId, externalUserId) ||
                 other.externalUserId == externalUserId));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, externalUserId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserResponseCopyWith<_$_UserResponse> get copyWith =>
-      __$$_UserResponseCopyWithImpl<_$_UserResponse>(this, _$identity);
+  _$$UserResponseImplCopyWith<_$UserResponseImpl> get copyWith =>
+      __$$UserResponseImplCopyWithImpl<_$UserResponseImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserResponseToJson(
+    return _$$UserResponseImplToJson(
       this,
     );
   }
@@ -163,13 +173,12 @@ class _$_UserResponse implements _UserResponse {
 
 abstract class _UserResponse implements UserResponse {
   factory _UserResponse(
-      {@JsonKey(name: 'id')
-          required final String id,
+      {@JsonKey(name: 'id') required final String id,
       @JsonKey(name: 'external_user_id')
-          required final String externalUserId}) = _$_UserResponse;
+      required final String externalUserId}) = _$UserResponseImpl;
 
   factory _UserResponse.fromJson(Map<String, dynamic> json) =
-      _$_UserResponse.fromJson;
+      _$UserResponseImpl.fromJson;
 
   @override
   @JsonKey(name: 'id')
@@ -177,9 +186,12 @@ abstract class _UserResponse implements UserResponse {
   @override
   @JsonKey(name: 'external_user_id')
   String get externalUserId;
+
+  /// Create a copy of UserResponse
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_UserResponseCopyWith<_$_UserResponse> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UserResponseImplCopyWith<_$UserResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -192,8 +204,12 @@ mixin _$GetUserResponse {
   String get id => throw _privateConstructorUsedError;
   String get externalUserId => throw _privateConstructorUsedError;
 
+  /// Serializes this GetUserResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GetUserResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GetUserResponseCopyWith<GetUserResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -217,6 +233,8 @@ class _$GetUserResponseCopyWithImpl<$Res, $Val extends GetUserResponse>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GetUserResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -237,31 +255,33 @@ class _$GetUserResponseCopyWithImpl<$Res, $Val extends GetUserResponse>
 }
 
 /// @nodoc
-abstract class _$$_GetUserResponseCopyWith<$Res>
+abstract class _$$GetUserResponseImplCopyWith<$Res>
     implements $GetUserResponseCopyWith<$Res> {
-  factory _$$_GetUserResponseCopyWith(
-          _$_GetUserResponse value, $Res Function(_$_GetUserResponse) then) =
-      __$$_GetUserResponseCopyWithImpl<$Res>;
+  factory _$$GetUserResponseImplCopyWith(_$GetUserResponseImpl value,
+          $Res Function(_$GetUserResponseImpl) then) =
+      __$$GetUserResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String externalUserId});
 }
 
 /// @nodoc
-class __$$_GetUserResponseCopyWithImpl<$Res>
-    extends _$GetUserResponseCopyWithImpl<$Res, _$_GetUserResponse>
-    implements _$$_GetUserResponseCopyWith<$Res> {
-  __$$_GetUserResponseCopyWithImpl(
-      _$_GetUserResponse _value, $Res Function(_$_GetUserResponse) _then)
+class __$$GetUserResponseImplCopyWithImpl<$Res>
+    extends _$GetUserResponseCopyWithImpl<$Res, _$GetUserResponseImpl>
+    implements _$$GetUserResponseImplCopyWith<$Res> {
+  __$$GetUserResponseImplCopyWithImpl(
+      _$GetUserResponseImpl _value, $Res Function(_$GetUserResponseImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GetUserResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = null,
     Object? externalUserId = null,
   }) {
-    return _then(_$_GetUserResponse(
+    return _then(_$GetUserResponseImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -276,11 +296,11 @@ class __$$_GetUserResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GetUserResponse implements _GetUserResponse {
-  _$_GetUserResponse({required this.id, required this.externalUserId});
+class _$GetUserResponseImpl implements _GetUserResponse {
+  _$GetUserResponseImpl({required this.id, required this.externalUserId});
 
-  factory _$_GetUserResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_GetUserResponseFromJson(json);
+  factory _$GetUserResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GetUserResponseImplFromJson(json);
 
   @override
   final String id;
@@ -293,28 +313,31 @@ class _$_GetUserResponse implements _GetUserResponse {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GetUserResponse &&
+            other is _$GetUserResponseImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.externalUserId, externalUserId) ||
                 other.externalUserId == externalUserId));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, externalUserId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GetUserResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GetUserResponseCopyWith<_$_GetUserResponse> get copyWith =>
-      __$$_GetUserResponseCopyWithImpl<_$_GetUserResponse>(this, _$identity);
+  _$$GetUserResponseImplCopyWith<_$GetUserResponseImpl> get copyWith =>
+      __$$GetUserResponseImplCopyWithImpl<_$GetUserResponseImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GetUserResponseToJson(
+    return _$$GetUserResponseImplToJson(
       this,
     );
   }
@@ -323,18 +346,21 @@ class _$_GetUserResponse implements _GetUserResponse {
 abstract class _GetUserResponse implements GetUserResponse {
   factory _GetUserResponse(
       {required final String id,
-      required final String externalUserId}) = _$_GetUserResponse;
+      required final String externalUserId}) = _$GetUserResponseImpl;
 
   factory _GetUserResponse.fromJson(Map<String, dynamic> json) =
-      _$_GetUserResponse.fromJson;
+      _$GetUserResponseImpl.fromJson;
 
   @override
   String get id;
   @override
   String get externalUserId;
+
+  /// Create a copy of GetUserResponse
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_GetUserResponseCopyWith<_$_GetUserResponse> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GetUserResponseImplCopyWith<_$GetUserResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -348,10 +374,15 @@ mixin _$BridgeTokenRequest {
   String get product => throw _privateConstructorUsedError;
   String get provider => throw _privateConstructorUsedError;
   String get companyMapping => throw _privateConstructorUsedError;
+  @JsonKey(includeIfNull: false)
   Account? get account => throw _privateConstructorUsedError;
 
+  /// Serializes this BridgeTokenRequest to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BridgeTokenRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $BridgeTokenRequestCopyWith<BridgeTokenRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -366,7 +397,7 @@ abstract class $BridgeTokenRequestCopyWith<$Res> {
       {@JsonKey(name: 'product_type') String product,
       String provider,
       String companyMapping,
-      Account? account});
+      @JsonKey(includeIfNull: false) Account? account});
 
   $AccountCopyWith<$Res>? get account;
 }
@@ -381,6 +412,8 @@ class _$BridgeTokenRequestCopyWithImpl<$Res, $Val extends BridgeTokenRequest>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of BridgeTokenRequest
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -409,6 +442,8 @@ class _$BridgeTokenRequestCopyWithImpl<$Res, $Val extends BridgeTokenRequest>
     ) as $Val);
   }
 
+  /// Create a copy of BridgeTokenRequest
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AccountCopyWith<$Res>? get account {
@@ -423,31 +458,33 @@ class _$BridgeTokenRequestCopyWithImpl<$Res, $Val extends BridgeTokenRequest>
 }
 
 /// @nodoc
-abstract class _$$_BridgeTokenRequestCopyWith<$Res>
+abstract class _$$BridgeTokenRequestImplCopyWith<$Res>
     implements $BridgeTokenRequestCopyWith<$Res> {
-  factory _$$_BridgeTokenRequestCopyWith(_$_BridgeTokenRequest value,
-          $Res Function(_$_BridgeTokenRequest) then) =
-      __$$_BridgeTokenRequestCopyWithImpl<$Res>;
+  factory _$$BridgeTokenRequestImplCopyWith(_$BridgeTokenRequestImpl value,
+          $Res Function(_$BridgeTokenRequestImpl) then) =
+      __$$BridgeTokenRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {@JsonKey(name: 'product_type') String product,
       String provider,
       String companyMapping,
-      Account? account});
+      @JsonKey(includeIfNull: false) Account? account});
 
   @override
   $AccountCopyWith<$Res>? get account;
 }
 
 /// @nodoc
-class __$$_BridgeTokenRequestCopyWithImpl<$Res>
-    extends _$BridgeTokenRequestCopyWithImpl<$Res, _$_BridgeTokenRequest>
-    implements _$$_BridgeTokenRequestCopyWith<$Res> {
-  __$$_BridgeTokenRequestCopyWithImpl(
-      _$_BridgeTokenRequest _value, $Res Function(_$_BridgeTokenRequest) _then)
+class __$$BridgeTokenRequestImplCopyWithImpl<$Res>
+    extends _$BridgeTokenRequestCopyWithImpl<$Res, _$BridgeTokenRequestImpl>
+    implements _$$BridgeTokenRequestImplCopyWith<$Res> {
+  __$$BridgeTokenRequestImplCopyWithImpl(_$BridgeTokenRequestImpl _value,
+      $Res Function(_$BridgeTokenRequestImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of BridgeTokenRequest
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -456,7 +493,7 @@ class __$$_BridgeTokenRequestCopyWithImpl<$Res>
     Object? companyMapping = null,
     Object? account = freezed,
   }) {
-    return _then(_$_BridgeTokenRequest(
+    return _then(_$BridgeTokenRequestImpl(
       product: null == product
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
@@ -479,15 +516,15 @@ class __$$_BridgeTokenRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BridgeTokenRequest implements _BridgeTokenRequest {
-  _$_BridgeTokenRequest(
+class _$BridgeTokenRequestImpl implements _BridgeTokenRequest {
+  _$BridgeTokenRequestImpl(
       {@JsonKey(name: 'product_type') required this.product,
       required this.provider,
       required this.companyMapping,
-      this.account});
+      @JsonKey(includeIfNull: false) this.account});
 
-  factory _$_BridgeTokenRequest.fromJson(Map<String, dynamic> json) =>
-      _$$_BridgeTokenRequestFromJson(json);
+  factory _$BridgeTokenRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BridgeTokenRequestImplFromJson(json);
 
   @override
   @JsonKey(name: 'product_type')
@@ -497,6 +534,7 @@ class _$_BridgeTokenRequest implements _BridgeTokenRequest {
   @override
   final String companyMapping;
   @override
+  @JsonKey(includeIfNull: false)
   final Account? account;
 
   @override
@@ -505,10 +543,10 @@ class _$_BridgeTokenRequest implements _BridgeTokenRequest {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BridgeTokenRequest &&
+            other is _$BridgeTokenRequestImpl &&
             (identical(other.product, product) || other.product == product) &&
             (identical(other.provider, provider) ||
                 other.provider == provider) &&
@@ -517,21 +555,23 @@ class _$_BridgeTokenRequest implements _BridgeTokenRequest {
             (identical(other.account, account) || other.account == account));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, product, provider, companyMapping, account);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BridgeTokenRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BridgeTokenRequestCopyWith<_$_BridgeTokenRequest> get copyWith =>
-      __$$_BridgeTokenRequestCopyWithImpl<_$_BridgeTokenRequest>(
+  _$$BridgeTokenRequestImplCopyWith<_$BridgeTokenRequestImpl> get copyWith =>
+      __$$BridgeTokenRequestImplCopyWithImpl<_$BridgeTokenRequestImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BridgeTokenRequestToJson(
+    return _$$BridgeTokenRequestImplToJson(
       this,
     );
   }
@@ -539,13 +579,14 @@ class _$_BridgeTokenRequest implements _BridgeTokenRequest {
 
 abstract class _BridgeTokenRequest implements BridgeTokenRequest {
   factory _BridgeTokenRequest(
-      {@JsonKey(name: 'product_type') required final String product,
-      required final String provider,
-      required final String companyMapping,
-      final Account? account}) = _$_BridgeTokenRequest;
+          {@JsonKey(name: 'product_type') required final String product,
+          required final String provider,
+          required final String companyMapping,
+          @JsonKey(includeIfNull: false) final Account? account}) =
+      _$BridgeTokenRequestImpl;
 
   factory _BridgeTokenRequest.fromJson(Map<String, dynamic> json) =
-      _$_BridgeTokenRequest.fromJson;
+      _$BridgeTokenRequestImpl.fromJson;
 
   @override
   @JsonKey(name: 'product_type')
@@ -555,10 +596,14 @@ abstract class _BridgeTokenRequest implements BridgeTokenRequest {
   @override
   String get companyMapping;
   @override
+  @JsonKey(includeIfNull: false)
   Account? get account;
+
+  /// Create a copy of BridgeTokenRequest
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_BridgeTokenRequestCopyWith<_$_BridgeTokenRequest> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$BridgeTokenRequestImplCopyWith<_$BridgeTokenRequestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -571,8 +616,12 @@ mixin _$BridgeTokenResponse {
   @JsonKey(name: 'bridge_token')
   String get bridgeToken => throw _privateConstructorUsedError;
 
+  /// Serializes this BridgeTokenResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BridgeTokenResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $BridgeTokenResponseCopyWith<BridgeTokenResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -596,6 +645,8 @@ class _$BridgeTokenResponseCopyWithImpl<$Res, $Val extends BridgeTokenResponse>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of BridgeTokenResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -611,30 +662,32 @@ class _$BridgeTokenResponseCopyWithImpl<$Res, $Val extends BridgeTokenResponse>
 }
 
 /// @nodoc
-abstract class _$$_BridgeTokenResponseCopyWith<$Res>
+abstract class _$$BridgeTokenResponseImplCopyWith<$Res>
     implements $BridgeTokenResponseCopyWith<$Res> {
-  factory _$$_BridgeTokenResponseCopyWith(_$_BridgeTokenResponse value,
-          $Res Function(_$_BridgeTokenResponse) then) =
-      __$$_BridgeTokenResponseCopyWithImpl<$Res>;
+  factory _$$BridgeTokenResponseImplCopyWith(_$BridgeTokenResponseImpl value,
+          $Res Function(_$BridgeTokenResponseImpl) then) =
+      __$$BridgeTokenResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@JsonKey(name: 'bridge_token') String bridgeToken});
 }
 
 /// @nodoc
-class __$$_BridgeTokenResponseCopyWithImpl<$Res>
-    extends _$BridgeTokenResponseCopyWithImpl<$Res, _$_BridgeTokenResponse>
-    implements _$$_BridgeTokenResponseCopyWith<$Res> {
-  __$$_BridgeTokenResponseCopyWithImpl(_$_BridgeTokenResponse _value,
-      $Res Function(_$_BridgeTokenResponse) _then)
+class __$$BridgeTokenResponseImplCopyWithImpl<$Res>
+    extends _$BridgeTokenResponseCopyWithImpl<$Res, _$BridgeTokenResponseImpl>
+    implements _$$BridgeTokenResponseImplCopyWith<$Res> {
+  __$$BridgeTokenResponseImplCopyWithImpl(_$BridgeTokenResponseImpl _value,
+      $Res Function(_$BridgeTokenResponseImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of BridgeTokenResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? bridgeToken = null,
   }) {
-    return _then(_$_BridgeTokenResponse(
+    return _then(_$BridgeTokenResponseImpl(
       bridgeToken: null == bridgeToken
           ? _value.bridgeToken
           : bridgeToken // ignore: cast_nullable_to_non_nullable
@@ -645,12 +698,12 @@ class __$$_BridgeTokenResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BridgeTokenResponse implements _BridgeTokenResponse {
-  _$_BridgeTokenResponse(
+class _$BridgeTokenResponseImpl implements _BridgeTokenResponse {
+  _$BridgeTokenResponseImpl(
       {@JsonKey(name: 'bridge_token') required this.bridgeToken});
 
-  factory _$_BridgeTokenResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_BridgeTokenResponseFromJson(json);
+  factory _$BridgeTokenResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BridgeTokenResponseImplFromJson(json);
 
   @override
   @JsonKey(name: 'bridge_token')
@@ -662,28 +715,30 @@ class _$_BridgeTokenResponse implements _BridgeTokenResponse {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BridgeTokenResponse &&
+            other is _$BridgeTokenResponseImpl &&
             (identical(other.bridgeToken, bridgeToken) ||
                 other.bridgeToken == bridgeToken));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, bridgeToken);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BridgeTokenResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BridgeTokenResponseCopyWith<_$_BridgeTokenResponse> get copyWith =>
-      __$$_BridgeTokenResponseCopyWithImpl<_$_BridgeTokenResponse>(
+  _$$BridgeTokenResponseImplCopyWith<_$BridgeTokenResponseImpl> get copyWith =>
+      __$$BridgeTokenResponseImplCopyWithImpl<_$BridgeTokenResponseImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BridgeTokenResponseToJson(
+    return _$$BridgeTokenResponseImplToJson(
       this,
     );
   }
@@ -692,16 +747,19 @@ class _$_BridgeTokenResponse implements _BridgeTokenResponse {
 abstract class _BridgeTokenResponse implements BridgeTokenResponse {
   factory _BridgeTokenResponse(
           {@JsonKey(name: 'bridge_token') required final String bridgeToken}) =
-      _$_BridgeTokenResponse;
+      _$BridgeTokenResponseImpl;
 
   factory _BridgeTokenResponse.fromJson(Map<String, dynamic> json) =
-      _$_BridgeTokenResponse.fromJson;
+      _$BridgeTokenResponseImpl.fromJson;
 
   @override
   @JsonKey(name: 'bridge_token')
   String get bridgeToken;
+
+  /// Create a copy of BridgeTokenResponse
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_BridgeTokenResponseCopyWith<_$_BridgeTokenResponse> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$BridgeTokenResponseImplCopyWith<_$BridgeTokenResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

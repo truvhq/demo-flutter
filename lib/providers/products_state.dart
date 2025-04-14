@@ -22,7 +22,7 @@ enum ProductType {
 @freezed
 class Account with _$Account {
   factory Account({
-    @JsonKey(name: 'routing_number') @Default('1234556') String routingNumber,
+    @JsonKey(name: 'routing_number') @Default('12345678') String routingNumber,
     @JsonKey(name: 'account_number') @Default('21234234') String accountNumber,
     @JsonKey(name: 'bank_name') @Default('TD Bank') String bankName,
     @JsonKey(name: 'account_type') @Default('checking') String accountType,
@@ -64,6 +64,10 @@ class ProductNotifier extends AutoDisposeNotifier<Product> {
     final settingsNotifier = ref.read(settingsProvider.notifier);
 
     String product = 'income';
+    Account? account =
+        [ProductType.dds, ProductType.pll].contains(state.productType)
+            ? state.account
+            : null;
 
     switch (state.productType) {
       case ProductType.dds:
@@ -99,7 +103,7 @@ class ProductNotifier extends AutoDisposeNotifier<Product> {
           product: product,
           provider: state.provider,
           companyMapping: state.companyMapping,
-          account: state.account,
+          account: account,
         ));
 
     console.log('Bridge token response: $response');

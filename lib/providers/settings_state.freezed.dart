@@ -12,7 +12,7 @@ part of 'settings_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$Settings {
@@ -23,7 +23,9 @@ mixin _$Settings {
   String get production => throw _privateConstructorUsedError;
   String? get userId => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Settings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SettingsCopyWith<Settings> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -52,6 +54,8 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Settings
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,10 +96,11 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
 }
 
 /// @nodoc
-abstract class _$$_SettingsCopyWith<$Res> implements $SettingsCopyWith<$Res> {
-  factory _$$_SettingsCopyWith(
-          _$_Settings value, $Res Function(_$_Settings) then) =
-      __$$_SettingsCopyWithImpl<$Res>;
+abstract class _$$SettingsImplCopyWith<$Res>
+    implements $SettingsCopyWith<$Res> {
+  factory _$$SettingsImplCopyWith(
+          _$SettingsImpl value, $Res Function(_$SettingsImpl) then) =
+      __$$SettingsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -108,13 +113,15 @@ abstract class _$$_SettingsCopyWith<$Res> implements $SettingsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SettingsCopyWithImpl<$Res>
-    extends _$SettingsCopyWithImpl<$Res, _$_Settings>
-    implements _$$_SettingsCopyWith<$Res> {
-  __$$_SettingsCopyWithImpl(
-      _$_Settings _value, $Res Function(_$_Settings) _then)
+class __$$SettingsImplCopyWithImpl<$Res>
+    extends _$SettingsCopyWithImpl<$Res, _$SettingsImpl>
+    implements _$$SettingsImplCopyWith<$Res> {
+  __$$SettingsImplCopyWithImpl(
+      _$SettingsImpl _value, $Res Function(_$SettingsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Settings
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -125,7 +132,7 @@ class __$$_SettingsCopyWithImpl<$Res>
     Object? production = null,
     Object? userId = freezed,
   }) {
-    return _then(_$_Settings(
+    return _then(_$SettingsImpl(
       env: null == env
           ? _value.env
           : env // ignore: cast_nullable_to_non_nullable
@@ -156,8 +163,8 @@ class __$$_SettingsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Settings extends _Settings {
-  _$_Settings(
+class _$SettingsImpl extends _Settings {
+  _$SettingsImpl(
       {this.env = Env.sandbox,
       this.clientId = '',
       this.sandbox = '',
@@ -190,10 +197,10 @@ class _$_Settings extends _Settings {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Settings &&
+            other is _$SettingsImpl &&
             (identical(other.env, env) || other.env == env) &&
             (identical(other.clientId, clientId) ||
                 other.clientId == clientId) &&
@@ -209,11 +216,13 @@ class _$_Settings extends _Settings {
   int get hashCode => Object.hash(
       runtimeType, env, clientId, sandbox, development, production, userId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Settings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SettingsCopyWith<_$_Settings> get copyWith =>
-      __$$_SettingsCopyWithImpl<_$_Settings>(this, _$identity);
+  _$$SettingsImplCopyWith<_$SettingsImpl> get copyWith =>
+      __$$SettingsImplCopyWithImpl<_$SettingsImpl>(this, _$identity);
 }
 
 abstract class _Settings extends Settings {
@@ -223,7 +232,7 @@ abstract class _Settings extends Settings {
       final String sandbox,
       final String development,
       final String production,
-      final String? userId}) = _$_Settings;
+      final String? userId}) = _$SettingsImpl;
   _Settings._() : super._();
 
   @override
@@ -238,8 +247,11 @@ abstract class _Settings extends Settings {
   String get production;
   @override
   String? get userId;
+
+  /// Create a copy of Settings
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_SettingsCopyWith<_$_Settings> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SettingsImplCopyWith<_$SettingsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

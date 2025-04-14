@@ -5,13 +5,14 @@ import 'package:truv_demo_flutter/providers/products_state.dart';
 import 'package:truv_demo_flutter/providers/settings_state.dart';
 import 'package:truv_demo_flutter/widgets/additional_settings.dart';
 import 'package:truv_demo_flutter/widgets/title.dart';
+import 'package:truv_flutter/truv_event.dart';
 import 'package:truv_flutter/truv_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ProductScreen extends ConsumerStatefulWidget {
-  const ProductScreen({Key? key}) : super(key: key);
+  const ProductScreen({super.key});
   @override
   createState() => _ProductScreenState();
 }
@@ -30,15 +31,22 @@ class _ProductScreenState extends ConsumerState {
     super.initState();
   }
 
-  void onEvent(String log) {
-    Map<String, dynamic> event = jsonDecode(log);
-    if (event['event'] == 'onClose' || event['event'] == 'onSuccess') {
+  void onEvent(TruvEvent event) {
+    if (event is TruvEventClose || event is TruvEventSuccess) {
       setState(() {
         isBridgeOpened = false;
       });
     }
 
-    ref.read(consoleProvider.notifier).log(log);
+    String jsonText = '';
+
+    if (event is TruvEventSuccess) {
+      jsonText = jsonEncode(event.toJson());
+    } else if (event is TruvEventEvent) {
+      jsonText = jsonEncode(event.toJson());
+    }
+
+    ref.read(consoleProvider.notifier).log('${event.toString()} $jsonText');
   }
 
   Future<void> showAlert() async {
@@ -159,7 +167,7 @@ class _ProductScreenState extends ConsumerState {
                           if (!settings.hasCredentials || state.noToken) {
                             showAlert().whenComplete(
                               () => DefaultTabController.of(context)
-                                  ?.animateTo(2),
+                                  .animateTo(2),
                             );
                             return;
                           }

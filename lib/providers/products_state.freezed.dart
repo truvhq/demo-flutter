@@ -12,7 +12,7 @@ part of 'products_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Account _$AccountFromJson(Map<String, dynamic> json) {
   return _Account.fromJson(json);
@@ -33,8 +33,12 @@ mixin _$Account {
   @JsonKey(name: 'deposit_value')
   int get depositValue => throw _privateConstructorUsedError;
 
+  /// Serializes this Account to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Account
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AccountCopyWith<Account> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -62,6 +66,8 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Account
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -102,10 +108,10 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
 }
 
 /// @nodoc
-abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
-  factory _$$_AccountCopyWith(
-          _$_Account value, $Res Function(_$_Account) then) =
-      __$$_AccountCopyWithImpl<$Res>;
+abstract class _$$AccountImplCopyWith<$Res> implements $AccountCopyWith<$Res> {
+  factory _$$AccountImplCopyWith(
+          _$AccountImpl value, $Res Function(_$AccountImpl) then) =
+      __$$AccountImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -118,12 +124,15 @@ abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_AccountCopyWithImpl<$Res>
-    extends _$AccountCopyWithImpl<$Res, _$_Account>
-    implements _$$_AccountCopyWith<$Res> {
-  __$$_AccountCopyWithImpl(_$_Account _value, $Res Function(_$_Account) _then)
+class __$$AccountImplCopyWithImpl<$Res>
+    extends _$AccountCopyWithImpl<$Res, _$AccountImpl>
+    implements _$$AccountImplCopyWith<$Res> {
+  __$$AccountImplCopyWithImpl(
+      _$AccountImpl _value, $Res Function(_$AccountImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Account
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -134,7 +143,7 @@ class __$$_AccountCopyWithImpl<$Res>
     Object? depositType = null,
     Object? depositValue = null,
   }) {
-    return _then(_$_Account(
+    return _then(_$AccountImpl(
       routingNumber: null == routingNumber
           ? _value.routingNumber
           : routingNumber // ignore: cast_nullable_to_non_nullable
@@ -165,17 +174,17 @@ class __$$_AccountCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Account implements _Account {
-  _$_Account(
-      {@JsonKey(name: 'routing_number') this.routingNumber = '1234556',
+class _$AccountImpl implements _Account {
+  _$AccountImpl(
+      {@JsonKey(name: 'routing_number') this.routingNumber = '12345678',
       @JsonKey(name: 'account_number') this.accountNumber = '21234234',
       @JsonKey(name: 'bank_name') this.bankName = 'TD Bank',
       @JsonKey(name: 'account_type') this.accountType = 'checking',
       @JsonKey(name: 'deposit_type') this.depositType = 'amount',
       @JsonKey(name: 'deposit_value') this.depositValue = 1});
 
-  factory _$_Account.fromJson(Map<String, dynamic> json) =>
-      _$$_AccountFromJson(json);
+  factory _$AccountImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AccountImplFromJson(json);
 
   @override
   @JsonKey(name: 'routing_number')
@@ -202,10 +211,10 @@ class _$_Account implements _Account {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Account &&
+            other is _$AccountImpl &&
             (identical(other.routingNumber, routingNumber) ||
                 other.routingNumber == routingNumber) &&
             (identical(other.accountNumber, accountNumber) ||
@@ -220,20 +229,22 @@ class _$_Account implements _Account {
                 other.depositValue == depositValue));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, routingNumber, accountNumber,
       bankName, accountType, depositType, depositValue);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Account
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AccountCopyWith<_$_Account> get copyWith =>
-      __$$_AccountCopyWithImpl<_$_Account>(this, _$identity);
+  _$$AccountImplCopyWith<_$AccountImpl> get copyWith =>
+      __$$AccountImplCopyWithImpl<_$AccountImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AccountToJson(
+    return _$$AccountImplToJson(
       this,
     );
   }
@@ -246,9 +257,9 @@ abstract class _Account implements Account {
       @JsonKey(name: 'bank_name') final String bankName,
       @JsonKey(name: 'account_type') final String accountType,
       @JsonKey(name: 'deposit_type') final String depositType,
-      @JsonKey(name: 'deposit_value') final int depositValue}) = _$_Account;
+      @JsonKey(name: 'deposit_value') final int depositValue}) = _$AccountImpl;
 
-  factory _Account.fromJson(Map<String, dynamic> json) = _$_Account.fromJson;
+  factory _Account.fromJson(Map<String, dynamic> json) = _$AccountImpl.fromJson;
 
   @override
   @JsonKey(name: 'routing_number')
@@ -268,9 +279,12 @@ abstract class _Account implements Account {
   @override
   @JsonKey(name: 'deposit_value')
   int get depositValue;
+
+  /// Create a copy of Account
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_AccountCopyWith<_$_Account> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AccountImplCopyWith<_$AccountImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -282,7 +296,9 @@ mixin _$Product {
   String get provider => throw _privateConstructorUsedError;
   Account get account => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Product
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ProductCopyWith<Product> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -311,6 +327,8 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Product
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -344,6 +362,8 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     ) as $Val);
   }
 
+  /// Create a copy of Product
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AccountCopyWith<$Res> get account {
@@ -354,10 +374,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
 }
 
 /// @nodoc
-abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
-  factory _$$_ProductCopyWith(
-          _$_Product value, $Res Function(_$_Product) then) =
-      __$$_ProductCopyWithImpl<$Res>;
+abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
+  factory _$$ProductImplCopyWith(
+          _$ProductImpl value, $Res Function(_$ProductImpl) then) =
+      __$$ProductImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -372,12 +392,15 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ProductCopyWithImpl<$Res>
-    extends _$ProductCopyWithImpl<$Res, _$_Product>
-    implements _$$_ProductCopyWith<$Res> {
-  __$$_ProductCopyWithImpl(_$_Product _value, $Res Function(_$_Product) _then)
+class __$$ProductImplCopyWithImpl<$Res>
+    extends _$ProductCopyWithImpl<$Res, _$ProductImpl>
+    implements _$$ProductImplCopyWith<$Res> {
+  __$$ProductImplCopyWithImpl(
+      _$ProductImpl _value, $Res Function(_$ProductImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Product
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -387,7 +410,7 @@ class __$$_ProductCopyWithImpl<$Res>
     Object? provider = null,
     Object? account = null,
   }) {
-    return _then(_$_Product(
+    return _then(_$ProductImpl(
       bridgeToken: null == bridgeToken
           ? _value.bridgeToken
           : bridgeToken // ignore: cast_nullable_to_non_nullable
@@ -414,8 +437,8 @@ class __$$_ProductCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Product extends _Product {
-  _$_Product(
+class _$ProductImpl extends _Product {
+  _$ProductImpl(
       {this.bridgeToken = '',
       this.productType = ProductType.income,
       this.companyMapping = '',
@@ -444,10 +467,10 @@ class _$_Product extends _Product {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Product &&
+            other is _$ProductImpl &&
             (identical(other.bridgeToken, bridgeToken) ||
                 other.bridgeToken == bridgeToken) &&
             (identical(other.productType, productType) ||
@@ -463,11 +486,13 @@ class _$_Product extends _Product {
   int get hashCode => Object.hash(
       runtimeType, bridgeToken, productType, companyMapping, provider, account);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Product
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProductCopyWith<_$_Product> get copyWith =>
-      __$$_ProductCopyWithImpl<_$_Product>(this, _$identity);
+  _$$ProductImplCopyWith<_$ProductImpl> get copyWith =>
+      __$$ProductImplCopyWithImpl<_$ProductImpl>(this, _$identity);
 }
 
 abstract class _Product extends Product {
@@ -476,7 +501,7 @@ abstract class _Product extends Product {
       final ProductType productType,
       final String companyMapping,
       final String provider,
-      required final Account account}) = _$_Product;
+      required final Account account}) = _$ProductImpl;
   _Product._() : super._();
 
   @override
@@ -489,8 +514,11 @@ abstract class _Product extends Product {
   String get provider;
   @override
   Account get account;
+
+  /// Create a copy of Product
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_ProductCopyWith<_$_Product> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ProductImplCopyWith<_$ProductImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
