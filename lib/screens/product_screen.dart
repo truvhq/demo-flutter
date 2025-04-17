@@ -19,17 +19,8 @@ class ProductScreen extends ConsumerStatefulWidget {
 
 class _ProductScreenState extends ConsumerState {
   bool isBridgeOpened = false;
+  bool isBridgeTokenFetched = false;
   final depositValueController = TextEditingController();
-
-  @override
-  initState() {
-    if (ref.read(productProvider).noToken &&
-        ref.read(settingsProvider).hasCredentials) {
-      ref.read(productProvider.notifier).fetchBridgeToken();
-    }
-
-    super.initState();
-  }
 
   void onEvent(TruvEvent event) {
     if (event is TruvEventClose || event is TruvEventSuccess) {
@@ -74,7 +65,18 @@ class _ProductScreenState extends ConsumerState {
   @override
   Widget build(BuildContext context) {
     Product state = ref.watch(productProvider);
-    Settings settings = ref.watch(settingsProvider);
+
+    ref.listen(settingsProvider, (previous, next) {
+      if (isBridgeTokenFetched) {
+        return;
+      }
+
+      if (ref.read(productProvider).noToken &&
+          ref.read(settingsProvider).hasCredentials) {
+        isBridgeTokenFetched = true;
+        ref.read(productProvider.notifier).fetchBridgeToken();
+      }
+    });
 
     return isBridgeOpened
         ? TruvBridge(
@@ -164,10 +166,9 @@ class _ProductScreenState extends ConsumerState {
                           elevation: 0,
                         ),
                         onPressed: () {
-                          if (!settings.hasCredentials || state.noToken) {
+                          if (!ref.read(settingsProvider).hasCredentials || state.noToken) {
                             showAlert().whenComplete(
-                              () => DefaultTabController.of(context)
-                                  .animateTo(2),
+                              () => DefaultTabController.of(context).animateTo(2),
                             );
                             return;
                           }
