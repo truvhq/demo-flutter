@@ -38,7 +38,7 @@ dependencies:
   freezed: ^2.4.7
   freezed_annotation: ^2.4.1
   json_annotation: ^4.9.0
-  truv_flutter: ^1.1.0-rc.1
+  truv_flutter: ^1.1.0
   # uncomment and this and remove version to use the local sdk
     # path: ../flutter-sdk
 
