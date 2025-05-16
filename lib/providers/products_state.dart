@@ -15,8 +15,10 @@ enum ProductType {
   employment,
   dds,
   pll,
-  payrollHistory,
   employeeDirectory,
+  transactions,
+  assets,
+  insurance,
 }
 
 @freezed
@@ -82,9 +84,17 @@ class ProductNotifier extends AutoDisposeNotifier<Product> {
       case ProductType.pll:
         product = 'pll';
         break;
-      case ProductType.payrollHistory:
       case ProductType.employeeDirectory:
         product = 'admin';
+        break;
+      case ProductType.transactions:
+        product = 'transactions';
+        break;
+      case ProductType.assets:
+        product = 'assets';
+        break;
+      case ProductType.insurance:
+        product = 'insurance';
         break;
     }
 

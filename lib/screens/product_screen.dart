@@ -106,12 +106,12 @@ class _ProductScreenState extends ConsumerState {
                         },
                         items: const [
                           DropdownMenuItem(
-                            value: ProductType.income,
-                            child: Text('Income and Employment'),
-                          ),
-                          DropdownMenuItem(
                             value: ProductType.employment,
                             child: Text('Employment history'),
+                          ),
+                          DropdownMenuItem(
+                            value: ProductType.income,
+                            child: Text('Income and Employment'),
                           ),
                           DropdownMenuItem(
                             value: ProductType.dds,
@@ -126,9 +126,17 @@ class _ProductScreenState extends ConsumerState {
                             child: Text('Employee directory'),
                           ),
                           DropdownMenuItem(
-                            value: ProductType.payrollHistory,
-                            child: Text('Payroll history'),
+                            value: ProductType.transactions,
+                            child: Text('Transactions'),
                           ),
+                          DropdownMenuItem(
+                            value: ProductType.assets,
+                            child: Text('Assets'),
+                          ),
+                          DropdownMenuItem(
+                            value: ProductType.insurance,
+                            child: Text('Insurance'),
+                          )
                         ],
                       ),
                       if (state.productType == ProductType.dds ||
