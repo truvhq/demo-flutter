@@ -5,8 +5,8 @@ PODS:
     - FlutterMacOS
   - truv_flutter (1.0.0):
     - Flutter
-    - TruvSDK (= 1.5.1)
-  - TruvSDK (1.5.1)
+    - TruvSDK (= 1.6.0)
+  - TruvSDK (1.6.0)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
@@ -28,8 +28,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
-  truv_flutter: a95f6c7403e899b23943ea90e8fc3d1bf294fc56
-  TruvSDK: dffe84d01d5bb93f2a33ecf99255b236c7c68a7d
+  truv_flutter: cfb2c6f7c55fbe94bbabdf486b04a14e06ffc52f
+  TruvSDK: f62b5c642b415ec5f5fb3fbb71b5c4497377450f
 
 PODFILE CHECKSUM: 9b2f37c38b16486426f6d5d6f9b22e8e63fe4b06
 
