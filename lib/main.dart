@@ -4,7 +4,6 @@ import 'package:truv_demo_flutter/screens/settings_screen.dart';
 import 'package:truv_demo_flutter/tabs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
@@ -16,7 +15,7 @@ void main() async {
 }
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
 
   // This widget is the root of your application.
   @override
@@ -31,17 +30,15 @@ class App extends StatelessWidget {
         colorScheme: const ColorScheme(
           primary: Color(0xFF0DAB4C),
           secondary: Color(0xFF999999),
-          background: Colors.white,
           brightness: Brightness.light,
           error: Colors.red,
-          onBackground: Colors.white,
           onError: Colors.red,
           onPrimary: Colors.white,
           onSecondary: Colors.black,
           onSurface: Colors.grey,
           surface: Colors.white,
         ),
-        tabBarTheme: const TabBarTheme(
+        tabBarTheme: const TabBarThemeData(
           indicator: BoxDecoration(color: Colors.white),
           labelColor: Color(0xFF0DAB4C),
           unselectedLabelColor: Color(0xFF999999),
@@ -53,17 +50,17 @@ class App extends StatelessWidget {
 }
 
 class MainPage extends StatelessWidget {
-  const MainPage({Key? key}) : super(key: key);
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final _controller = DefaultTabController.of(context);
+    final controller = DefaultTabController.of(context);
     return Scaffold(
-      bottomNavigationBar: Tabs(controller: _controller),
+      bottomNavigationBar: Tabs(controller: controller),
       body: SafeArea(
         child: TabBarView(
           physics: const NeverScrollableScrollPhysics(),
-          controller: _controller,
+          controller: controller,
           children: const [
             ProductScreen(),
             ConsoleScreen(),
