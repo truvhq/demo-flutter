@@ -716,10 +716,10 @@ packages:
     dependency: "direct main"
     description:
       name: truv_flutter
-      sha256: bc3e43901ec740f92d776eab52105a1e38a6ab24ec66014aaae4db06112d3405
+      sha256: "4817b96e19f31a7fc5529018224713edcb5e055c0cf34af9769e097fddc55f46"
       url: "https://pub.dev"
     source: hosted
-    version: "1.4.0-rc.1"
+    version: "1.4.0"
   typed_data:
     dependency: transitive
     description:
