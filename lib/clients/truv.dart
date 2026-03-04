@@ -54,7 +54,7 @@ class BridgeTokenResponse with _$BridgeTokenResponse {
 }
 
 class TruvApiClient {
-  final String _baseUrl = 'https://prod.truv.com/v1';
+  final String _baseUrl;
   final String clientId;
   final String clientSecret;
 
@@ -64,7 +64,11 @@ class TruvApiClient {
         'X-Access-Secret': clientSecret,
       };
 
-  const TruvApiClient({required this.clientId, required this.clientSecret});
+  const TruvApiClient({
+    required this.clientId,
+    required this.clientSecret,
+    required String baseUrl,
+  }) : _baseUrl = baseUrl;
 
   // https://docs.truv.com/reference/users_create
   Future<UserResponse> createUser(String externalId) async {

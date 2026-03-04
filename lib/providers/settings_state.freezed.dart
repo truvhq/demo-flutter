@@ -22,6 +22,7 @@ mixin _$Settings {
   String get development => throw _privateConstructorUsedError;
   String get production => throw _privateConstructorUsedError;
   String? get userId => throw _privateConstructorUsedError;
+  Backend get backend => throw _privateConstructorUsedError;
 
   /// Create a copy of Settings
   /// with the given fields replaced by the non-null parameter values.
@@ -41,7 +42,8 @@ abstract class $SettingsCopyWith<$Res> {
       String sandbox,
       String development,
       String production,
-      String? userId});
+      String? userId,
+      Backend backend});
 }
 
 /// @nodoc
@@ -65,6 +67,7 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
     Object? development = null,
     Object? production = null,
     Object? userId = freezed,
+    Object? backend = null,
   }) {
     return _then(_value.copyWith(
       env: null == env
@@ -91,6 +94,10 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String?,
+      backend: null == backend
+          ? _value.backend
+          : backend // ignore: cast_nullable_to_non_nullable
+              as Backend,
     ) as $Val);
   }
 }
@@ -109,7 +116,8 @@ abstract class _$$SettingsImplCopyWith<$Res>
       String sandbox,
       String development,
       String production,
-      String? userId});
+      String? userId,
+      Backend backend});
 }
 
 /// @nodoc
@@ -131,6 +139,7 @@ class __$$SettingsImplCopyWithImpl<$Res>
     Object? development = null,
     Object? production = null,
     Object? userId = freezed,
+    Object? backend = null,
   }) {
     return _then(_$SettingsImpl(
       env: null == env
@@ -157,6 +166,10 @@ class __$$SettingsImplCopyWithImpl<$Res>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String?,
+      backend: null == backend
+          ? _value.backend
+          : backend // ignore: cast_nullable_to_non_nullable
+              as Backend,
     ));
   }
 }
@@ -170,7 +183,8 @@ class _$SettingsImpl extends _Settings {
       this.sandbox = '',
       this.development = '',
       this.production = '',
-      this.userId})
+      this.userId,
+      this.backend = Backend.production})
       : super._();
 
   @override
@@ -190,10 +204,13 @@ class _$SettingsImpl extends _Settings {
   final String production;
   @override
   final String? userId;
+  @override
+  @JsonKey()
+  final Backend backend;
 
   @override
   String toString() {
-    return 'Settings(env: $env, clientId: $clientId, sandbox: $sandbox, development: $development, production: $production, userId: $userId)';
+    return 'Settings(env: $env, clientId: $clientId, sandbox: $sandbox, development: $development, production: $production, userId: $userId, backend: $backend)';
   }
 
   @override
@@ -209,12 +226,13 @@ class _$SettingsImpl extends _Settings {
                 other.development == development) &&
             (identical(other.production, production) ||
                 other.production == production) &&
-            (identical(other.userId, userId) || other.userId == userId));
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.backend, backend) || other.backend == backend));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, env, clientId, sandbox, development, production, userId);
+  int get hashCode => Object.hash(runtimeType, env, clientId, sandbox,
+      development, production, userId, backend);
 
   /// Create a copy of Settings
   /// with the given fields replaced by the non-null parameter values.
@@ -232,7 +250,8 @@ abstract class _Settings extends Settings {
       final String sandbox,
       final String development,
       final String production,
-      final String? userId}) = _$SettingsImpl;
+      final String? userId,
+      final Backend backend}) = _$SettingsImpl;
   _Settings._() : super._();
 
   @override
@@ -247,6 +266,8 @@ abstract class _Settings extends Settings {
   String get production;
   @override
   String? get userId;
+  @override
+  Backend get backend;
 
   /// Create a copy of Settings
   /// with the given fields replaced by the non-null parameter values.

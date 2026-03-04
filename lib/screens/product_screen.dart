@@ -78,10 +78,13 @@ class _ProductScreenState extends ConsumerState {
       }
     });
 
+    final settingsState = ref.watch(settingsProvider);
+
     return isBridgeOpened
         ? TruvBridge(
             bridgeToken: state.bridgeToken,
             onEvent: onEvent,
+            config: settingsState.truvConfig,
           )
         : Container(
             padding: const EdgeInsets.all(12.0),

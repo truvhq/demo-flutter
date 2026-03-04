@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
+import 'package:truv_flutter/truv_flutter.dart';
 
 part 'settings_state.freezed.dart';
 
@@ -9,6 +10,30 @@ enum Env {
   dev,
   prod,
 }
+
+enum Backend {
+  production,
+  stage,
+  dev,
+}
+
+const _apiHostMap = {
+  Backend.production: 'https://prod.truv.com',
+  Backend.stage: 'https://stage.truv.com',
+  Backend.dev: 'https://dev.truv.com',
+};
+
+const _cdnHostMap = {
+  Backend.production: 'https://cdn.truv.com',
+  Backend.stage: 'https://cdn-stage.truv.com',
+  Backend.dev: 'https://cdn-dev.truv.com',
+};
+
+const _orderUrlMap = {
+  Backend.production: 'https://my.truv.com',
+  Backend.stage: 'https://my-stage.truv.com',
+  Backend.dev: 'https://my-dev.truv.com',
+};
 
 @freezed
 class Settings with _$Settings {
@@ -21,6 +46,7 @@ class Settings with _$Settings {
     @Default('') String development,
     @Default('') String production,
     String? userId,
+    @Default(Backend.production) Backend backend,
   }) = _Settings;
 
   get key {
@@ -38,12 +64,26 @@ class Settings with _$Settings {
   get hasCredentials {
     return key != '' && clientId != '';
   }
+
+  String get apiBaseUrl => '${_apiHostMap[backend]}/v1';
+
+  TruvConfig get truvConfig => TruvConfig(
+        apiUrl: _apiHostMap[backend],
+        cdnUrl: _cdnHostMap[backend],
+        orderUrl: _orderUrlMap[backend],
+      );
 }
 
 Env envFromString(String? value) {
   return Env.values.firstWhere(
       (type) => type.toString().split('.').last == value,
       orElse: () => Env.sandbox);
+}
+
+Backend backendFromString(String? value) {
+  return Backend.values.firstWhere(
+      (b) => b.name == value,
+      orElse: () => Backend.production);
 }
 
 class SettingsState extends StateNotifier<Settings> {
@@ -54,6 +94,7 @@ class SettingsState extends StateNotifier<Settings> {
       sandbox: _box?.get('sandbox') ?? '',
       development: _box?.get('development') ?? '',
       production: _box?.get('production') ?? '',
+      backend: backendFromString(_box?.get('backend') as String?),
     );
   }
 
@@ -68,6 +109,7 @@ class SettingsState extends StateNotifier<Settings> {
       'sandbox': settings.sandbox,
       'development': settings.development,
       'production': settings.production,
+      'backend': settings.backend.name,
     });
   }
 

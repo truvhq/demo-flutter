@@ -5,5 +5,9 @@ import '../clients/truv.dart';
 
 final apiClientProvider = Provider<TruvApiClient>((ref) {
   final settings = ref.watch(settingsProvider);
-  return TruvApiClient(clientId: settings.clientId, clientSecret: settings.key);
+  return TruvApiClient(
+    clientId: settings.clientId,
+    clientSecret: settings.key,
+    baseUrl: settings.apiBaseUrl,
+  );
 });
