@@ -54,7 +54,6 @@ class SettingsState extends StateNotifier<Settings> {
       sandbox: _box?.get('sandbox') ?? '',
       development: _box?.get('development') ?? '',
       production: _box?.get('production') ?? '',
-      userId: _box?.get('userId'),
     );
   }
 
@@ -69,13 +68,11 @@ class SettingsState extends StateNotifier<Settings> {
       'sandbox': settings.sandbox,
       'development': settings.development,
       'production': settings.production,
-      'userId': settings.userId,
     });
   }
 
   saveUserId(String userId) {
     state = state.copyWith(userId: userId);
-    _box?.put('userId', userId);
   }
 }
 
