@@ -18,19 +18,21 @@ class _OrderScreenState extends ConsumerState<OrderScreen> {
   String _orderToken = '';
   bool _isBridgeOpened = false;
 
-  void onEvent(TruvOrderBridgeEvent event) {
+  void onOrderEvent(TruvOrderBridgeEvent event) {
     if (event is TruvOrderBridgeClose) {
       setState(() {
         _isBridgeOpened = false;
       });
     }
 
-    String jsonText = '';
-    if (event is TruvOrderBridgeWidgetEvent && event.event != null) {
-      jsonText = jsonEncode(event.event!.toJson());
-    }
+    ref.read(consoleProvider.notifier).log('order ${event.runtimeType}');
+  }
 
-    ref.read(consoleProvider.notifier).log('${event.runtimeType} $jsonText');
+  void onBridgeEvent(TruvEventEvent event) {
+    String jsonText = '';
+    jsonText = jsonEncode(event.toJson());
+  
+    ref.read(consoleProvider.notifier).log('bridge ${event.runtimeType} $jsonText');
   }
 
   @override
@@ -38,9 +40,10 @@ class _OrderScreenState extends ConsumerState<OrderScreen> {
     final settingsState = ref.watch(settingsProvider);
 
     if (_isBridgeOpened && _orderToken.isNotEmpty) {
-      return TruvOrderBridge(
+      return TruvOrder(
         bridgeToken: _orderToken,
-        onEvent: onEvent,
+        onOrderEvent: onOrderEvent,
+        onBridgeEvent: onBridgeEvent,
         config: settingsState.truvConfig,
       );
     }

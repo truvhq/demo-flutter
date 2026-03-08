@@ -37,7 +37,7 @@ class _ProductScreenState extends ConsumerState {
       jsonText = jsonEncode(event.toJson());
     }
 
-    ref.read(consoleProvider.notifier).log('${event.toString()} $jsonText');
+    ref.read(consoleProvider.notifier).log('bridge ${event.toString()} $jsonText');
   }
 
   Future<void> showAlert() async {
@@ -101,7 +101,7 @@ class _ProductScreenState extends ConsumerState {
                           border: OutlineInputBorder(),
                           label: Text('Product type'),
                         ),
-                        value: state.productType,
+                        initialValue: state.productType,
                         onChanged: (ProductType? newValue) {
                           ref
                               .read(productProvider.notifier)
