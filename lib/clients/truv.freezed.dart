@@ -373,6 +373,7 @@ mixin _$BridgeTokenRequest {
   @JsonKey(name: 'product_type')
   String get product => throw _privateConstructorUsedError;
   String get provider => throw _privateConstructorUsedError;
+  @JsonKey(name: 'company_mapping')
   String get companyMapping => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false)
   Account? get account => throw _privateConstructorUsedError;
@@ -396,7 +397,7 @@ abstract class $BridgeTokenRequestCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'product_type') String product,
       String provider,
-      String companyMapping,
+      @JsonKey(name: 'company_mapping') String companyMapping,
       @JsonKey(includeIfNull: false) Account? account});
 
   $AccountCopyWith<$Res>? get account;
@@ -468,7 +469,7 @@ abstract class _$$BridgeTokenRequestImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'product_type') String product,
       String provider,
-      String companyMapping,
+      @JsonKey(name: 'company_mapping') String companyMapping,
       @JsonKey(includeIfNull: false) Account? account});
 
   @override
@@ -520,7 +521,7 @@ class _$BridgeTokenRequestImpl implements _BridgeTokenRequest {
   _$BridgeTokenRequestImpl(
       {@JsonKey(name: 'product_type') required this.product,
       required this.provider,
-      required this.companyMapping,
+      @JsonKey(name: 'company_mapping') required this.companyMapping,
       @JsonKey(includeIfNull: false) this.account});
 
   factory _$BridgeTokenRequestImpl.fromJson(Map<String, dynamic> json) =>
@@ -532,6 +533,7 @@ class _$BridgeTokenRequestImpl implements _BridgeTokenRequest {
   @override
   final String provider;
   @override
+  @JsonKey(name: 'company_mapping')
   final String companyMapping;
   @override
   @JsonKey(includeIfNull: false)
@@ -579,11 +581,11 @@ class _$BridgeTokenRequestImpl implements _BridgeTokenRequest {
 
 abstract class _BridgeTokenRequest implements BridgeTokenRequest {
   factory _BridgeTokenRequest(
-          {@JsonKey(name: 'product_type') required final String product,
-          required final String provider,
-          required final String companyMapping,
-          @JsonKey(includeIfNull: false) final Account? account}) =
-      _$BridgeTokenRequestImpl;
+      {@JsonKey(name: 'product_type') required final String product,
+      required final String provider,
+      @JsonKey(name: 'company_mapping') required final String companyMapping,
+      @JsonKey(includeIfNull: false)
+      final Account? account}) = _$BridgeTokenRequestImpl;
 
   factory _BridgeTokenRequest.fromJson(Map<String, dynamic> json) =
       _$BridgeTokenRequestImpl.fromJson;
@@ -594,6 +596,7 @@ abstract class _BridgeTokenRequest implements BridgeTokenRequest {
   @override
   String get provider;
   @override
+  @JsonKey(name: 'company_mapping')
   String get companyMapping;
   @override
   @JsonKey(includeIfNull: false)

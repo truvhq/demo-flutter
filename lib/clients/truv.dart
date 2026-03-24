@@ -35,7 +35,7 @@ class BridgeTokenRequest with _$BridgeTokenRequest {
   factory BridgeTokenRequest({
     @JsonKey(name: 'product_type') required String product,
     required String provider,
-    required String companyMapping,
+    @JsonKey(name: 'company_mapping') required String companyMapping,
     @JsonKey(includeIfNull: false) Account? account,
   }) = _BridgeTokenRequest;
 

@@ -7,6 +7,7 @@ import 'package:truv_demo_flutter/widgets/additional_settings.dart';
 import 'package:truv_demo_flutter/widgets/title.dart';
 import 'package:truv_flutter/truv_event.dart';
 import 'package:truv_flutter/truv_flutter.dart';
+import 'package:truv_demo_flutter/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -179,7 +180,7 @@ class _ProductScreenState extends ConsumerState {
                         onPressed: () {
                           if (!ref.read(settingsProvider).hasCredentials || state.noToken) {
                             showAlert().whenComplete(
-                              () => DefaultTabController.of(context).animateTo(2),
+                              () => DefaultTabController.of(context).animateTo(kSettingsTabIndex),
                             );
                             return;
                           }
