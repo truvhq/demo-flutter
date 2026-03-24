@@ -34,8 +34,8 @@ class GetUserResponse with _$GetUserResponse {
 class BridgeTokenRequest with _$BridgeTokenRequest {
   factory BridgeTokenRequest({
     @JsonKey(name: 'product_type') required String product,
-    required String provider,
-    @JsonKey(name: 'company_mapping') required String companyMapping,
+    @JsonKey(name: 'provider_id') required String provider,
+    @JsonKey(name: 'company_mapping_id') required String companyMapping,
     @JsonKey(includeIfNull: false) Account? account,
   }) = _BridgeTokenRequest;
 
