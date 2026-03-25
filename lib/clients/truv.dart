@@ -34,8 +34,8 @@ class GetUserResponse with _$GetUserResponse {
 class BridgeTokenRequest with _$BridgeTokenRequest {
   factory BridgeTokenRequest({
     @JsonKey(name: 'product_type') required String product,
-    @JsonKey(name: 'provider_id') required String provider,
-    @JsonKey(name: 'company_mapping_id') required String companyMapping,
+    @JsonKey(name: 'provider_id', includeIfNull: false) String? provider,
+    @JsonKey(name: 'company_mapping_id', includeIfNull: false) String? companyMapping,
     @JsonKey(includeIfNull: false) Account? account,
   }) = _BridgeTokenRequest;
 
@@ -107,6 +107,8 @@ class TruvApiClient {
 
     final rawResponse = await http.post(url,
         body: jsonEncode(request.toJson()), headers: _headers);
+
+    print('XXX ${rawResponse.body}');
 
     try {
       return BridgeTokenResponse.fromJson(jsonDecode(rawResponse.body));

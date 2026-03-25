@@ -20,7 +20,7 @@ class ProductScreen extends ConsumerStatefulWidget {
 
 class _ProductScreenState extends ConsumerState {
   bool isBridgeOpened = false;
-  bool isBridgeTokenFetched = false;
+  bool isLoading = false;
   final depositValueController = TextEditingController();
 
   void onEvent(TruvEvent event) {
@@ -66,18 +66,6 @@ class _ProductScreenState extends ConsumerState {
   @override
   Widget build(BuildContext context) {
     Product state = ref.watch(productProvider);
-
-    ref.listen(settingsProvider, (previous, next) {
-      if (isBridgeTokenFetched) {
-        return;
-      }
-
-      if (ref.read(productProvider).noToken &&
-          ref.read(settingsProvider).hasCredentials) {
-        isBridgeTokenFetched = true;
-        ref.read(productProvider.notifier).fetchBridgeToken();
-      }
-    });
 
     final settingsState = ref.watch(settingsProvider);
 
@@ -177,19 +165,28 @@ class _ProductScreenState extends ConsumerState {
                           minimumSize: const Size.fromHeight(44.0),
                           elevation: 0,
                         ),
-                        onPressed: () {
-                          if (!ref.read(settingsProvider).hasCredentials || state.noToken) {
+                        onPressed: isLoading ? null : () async {
+                          if (!ref.read(settingsProvider).hasCredentials) {
                             showAlert().whenComplete(
                               () => DefaultTabController.of(context).animateTo(kSettingsTabIndex),
                             );
                             return;
                           }
 
+                          setState(() => isLoading = true);
+                          final success = await ref.read(productProvider.notifier).fetchBridgeToken();
                           setState(() {
-                            isBridgeOpened = true;
+                            isLoading = false;
+                            isBridgeOpened = success;
                           });
                         },
-                        child: Text('Open Truv Bridge'.toUpperCase()),
+                        child: isLoading
+                            ? const SizedBox(
+                                height: 20,
+                                width: 20,
+                                child: CircularProgressIndicator(strokeWidth: 2),
+                              )
+                            : Text('Open Truv Bridge'.toUpperCase()),
                       )
                     ],
                   ),

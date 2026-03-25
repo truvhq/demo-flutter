@@ -36,8 +36,8 @@ _$BridgeTokenRequestImpl _$$BridgeTokenRequestImplFromJson(
         Map<String, dynamic> json) =>
     _$BridgeTokenRequestImpl(
       product: json['product_type'] as String,
-      provider: json['provider_id'] as String,
-      companyMapping: json['company_mapping_id'] as String,
+      provider: json['provider_id'] as String?,
+      companyMapping: json['company_mapping_id'] as String?,
       account: json['account'] == null
           ? null
           : Account.fromJson(json['account'] as Map<String, dynamic>),
@@ -47,8 +47,9 @@ Map<String, dynamic> _$$BridgeTokenRequestImplToJson(
         _$BridgeTokenRequestImpl instance) =>
     <String, dynamic>{
       'product_type': instance.product,
-      'provider_id': instance.provider,
-      'company_mapping_id': instance.companyMapping,
+      if (instance.provider case final value?) 'provider_id': value,
+      if (instance.companyMapping case final value?)
+        'company_mapping_id': value,
       if (instance.account case final value?) 'account': value,
     };
 
