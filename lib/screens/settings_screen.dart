@@ -33,12 +33,28 @@ class _SettingsState extends ConsumerState {
   @override
   Widget build(BuildContext context) {
     final Settings settings = ref.watch(settingsProvider);
-    return Container(
+    return SingleChildScrollView(
       padding: const EdgeInsets.all(12.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const ScreenTitle('Settings'),
+          const SizedBox(height: 12.0),
+          DropdownButtonFormField<Backend>(
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              label: Text('Backend'),
+            ),
+            value: settings.backend,
+            onChanged: (Backend? newValue) => ref
+                .read(settingsProvider.notifier)
+                .update(settings.copyWith(backend: newValue ?? Backend.production)),
+            items: const [
+              DropdownMenuItem(value: Backend.production, child: Text('Production')),
+              DropdownMenuItem(value: Backend.stage, child: Text('Stage')),
+              DropdownMenuItem(value: Backend.dev, child: Text('Dev')),
+            ],
+          ),
           const SizedBox(height: 12.0),
           DropdownButtonFormField(
             decoration: const InputDecoration(

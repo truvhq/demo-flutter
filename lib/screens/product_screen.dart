@@ -7,6 +7,7 @@ import 'package:truv_demo_flutter/widgets/additional_settings.dart';
 import 'package:truv_demo_flutter/widgets/title.dart';
 import 'package:truv_flutter/truv_event.dart';
 import 'package:truv_flutter/truv_flutter.dart';
+import 'package:truv_demo_flutter/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -19,7 +20,7 @@ class ProductScreen extends ConsumerStatefulWidget {
 
 class _ProductScreenState extends ConsumerState {
   bool isBridgeOpened = false;
-  bool isBridgeTokenFetched = false;
+  bool isLoading = false;
   final depositValueController = TextEditingController();
 
   void onEvent(TruvEvent event) {
@@ -37,7 +38,7 @@ class _ProductScreenState extends ConsumerState {
       jsonText = jsonEncode(event.toJson());
     }
 
-    ref.read(consoleProvider.notifier).log('${event.toString()} $jsonText');
+    ref.read(consoleProvider.notifier).log('bridge ${event.toString()} $jsonText');
   }
 
   Future<void> showAlert() async {
@@ -66,22 +67,13 @@ class _ProductScreenState extends ConsumerState {
   Widget build(BuildContext context) {
     Product state = ref.watch(productProvider);
 
-    ref.listen(settingsProvider, (previous, next) {
-      if (isBridgeTokenFetched) {
-        return;
-      }
-
-      if (ref.read(productProvider).noToken &&
-          ref.read(settingsProvider).hasCredentials) {
-        isBridgeTokenFetched = true;
-        ref.read(productProvider.notifier).fetchBridgeToken();
-      }
-    });
+    final settingsState = ref.watch(settingsProvider);
 
     return isBridgeOpened
         ? TruvBridge(
             bridgeToken: state.bridgeToken,
             onEvent: onEvent,
+            config: settingsState.truvConfig,
           )
         : Container(
             padding: const EdgeInsets.all(12.0),
@@ -98,7 +90,7 @@ class _ProductScreenState extends ConsumerState {
                           border: OutlineInputBorder(),
                           label: Text('Product type'),
                         ),
-                        value: state.productType,
+                        initialValue: state.productType,
                         onChanged: (ProductType? newValue) {
                           ref
                               .read(productProvider.notifier)
@@ -173,19 +165,28 @@ class _ProductScreenState extends ConsumerState {
                           minimumSize: const Size.fromHeight(44.0),
                           elevation: 0,
                         ),
-                        onPressed: () {
-                          if (!ref.read(settingsProvider).hasCredentials || state.noToken) {
+                        onPressed: isLoading ? null : () async {
+                          if (!ref.read(settingsProvider).hasCredentials) {
                             showAlert().whenComplete(
-                              () => DefaultTabController.of(context).animateTo(2),
+                              () => DefaultTabController.of(context).animateTo(kSettingsTabIndex),
                             );
                             return;
                           }
 
+                          setState(() => isLoading = true);
+                          final success = await ref.read(productProvider.notifier).fetchBridgeToken();
                           setState(() {
-                            isBridgeOpened = true;
+                            isLoading = false;
+                            isBridgeOpened = success;
                           });
                         },
-                        child: Text('Open Truv Bridge'.toUpperCase()),
+                        child: isLoading
+                            ? const SizedBox(
+                                height: 20,
+                                width: 20,
+                                child: CircularProgressIndicator(strokeWidth: 2),
+                              )
+                            : Text('Open Truv Bridge'.toUpperCase()),
                       )
                     ],
                   ),

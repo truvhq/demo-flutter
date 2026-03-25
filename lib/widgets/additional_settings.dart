@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AdditionalSettings extends ConsumerStatefulWidget {
-  const AdditionalSettings({Key? key}) : super(key: key);
+  const AdditionalSettings({super.key});
 
   @override
   _AdditionalSettingsState createState() => _AdditionalSettingsState();
@@ -45,7 +45,7 @@ class _AdditionalSettingsState extends ConsumerState<AdditionalSettings> {
       elevation: 0,
       expandedHeaderPadding: const EdgeInsets.all(0),
       expansionCallback: (panelIndex, isExpanded) => setState(() {
-        additionalSettingsExpanded = !isExpanded;
+        additionalSettingsExpanded = isExpanded;
       }),
       children: [
         ExpansionPanel(

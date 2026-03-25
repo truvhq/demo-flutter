@@ -1,4 +1,5 @@
 import 'package:truv_demo_flutter/screens/console_screen.dart';
+import 'package:truv_demo_flutter/screens/order_screen.dart';
 import 'package:truv_demo_flutter/screens/product_screen.dart';
 import 'package:truv_demo_flutter/screens/settings_screen.dart';
 import 'package:truv_demo_flutter/tabs.dart';
@@ -44,10 +45,12 @@ class App extends StatelessWidget {
           unselectedLabelColor: Color(0xFF999999),
         ),
       ),
-      home: const DefaultTabController(length: 3, child: MainPage()),
+      home: const DefaultTabController(length: 4, child: MainPage()),
     );
   }
 }
+
+const kSettingsTabIndex = 3;
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -63,6 +66,7 @@ class MainPage extends StatelessWidget {
           controller: controller,
           children: const [
             ProductScreen(),
+            OrderScreen(),
             ConsoleScreen(),
             SettingsScreen(),
           ],

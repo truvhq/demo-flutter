@@ -38,8 +38,17 @@ class _TabsState extends State<Tabs> {
         ),
         Tab(
           icon: SvgPicture.asset(
-            'assets/icons/console.svg',
+            'assets/icons/order.svg',
             color: widget.controller?.index == 1
+                ? colorScheme.primary
+                : colorScheme.secondary,
+          ),
+          text: 'Order',
+        ),
+        Tab(
+          icon: SvgPicture.asset(
+            'assets/icons/console.svg',
+            color: widget.controller?.index == 2
                 ? colorScheme.primary
                 : colorScheme.secondary,
           ),
@@ -48,7 +57,7 @@ class _TabsState extends State<Tabs> {
         Tab(
           icon: SvgPicture.asset(
             'assets/icons/settings.svg',
-            color: widget.controller?.index == 2
+            color: widget.controller?.index == 3
                 ? colorScheme.primary
                 : colorScheme.secondary,
           ),

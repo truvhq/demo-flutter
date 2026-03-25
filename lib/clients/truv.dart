@@ -34,8 +34,8 @@ class GetUserResponse with _$GetUserResponse {
 class BridgeTokenRequest with _$BridgeTokenRequest {
   factory BridgeTokenRequest({
     @JsonKey(name: 'product_type') required String product,
-    required String provider,
-    required String companyMapping,
+    @JsonKey(name: 'provider_id', includeIfNull: false) String? provider,
+    @JsonKey(name: 'company_mapping_id', includeIfNull: false) String? companyMapping,
     @JsonKey(includeIfNull: false) Account? account,
   }) = _BridgeTokenRequest;
 
@@ -54,7 +54,7 @@ class BridgeTokenResponse with _$BridgeTokenResponse {
 }
 
 class TruvApiClient {
-  final String _baseUrl = 'https://prod.truv.com/v1';
+  final String _baseUrl;
   final String clientId;
   final String clientSecret;
 
@@ -64,7 +64,11 @@ class TruvApiClient {
         'X-Access-Secret': clientSecret,
       };
 
-  const TruvApiClient({required this.clientId, required this.clientSecret});
+  const TruvApiClient({
+    required this.clientId,
+    required this.clientSecret,
+    required String baseUrl,
+  }) : _baseUrl = baseUrl;
 
   // https://docs.truv.com/reference/users_create
   Future<UserResponse> createUser(String externalId) async {
@@ -103,6 +107,8 @@ class TruvApiClient {
 
     final rawResponse = await http.post(url,
         body: jsonEncode(request.toJson()), headers: _headers);
+
+    print('XXX ${rawResponse.body}');
 
     try {
       return BridgeTokenResponse.fromJson(jsonDecode(rawResponse.body));

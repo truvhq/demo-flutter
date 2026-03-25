@@ -59,7 +59,7 @@ class ProductNotifier extends AutoDisposeNotifier<Product> {
     return Product(account: Account());
   }
 
-  Future<void> fetchBridgeToken() async {
+  Future<bool> fetchBridgeToken() async {
     final apiClient = ref.read(apiClientProvider);
     final console = ref.read(consoleProvider.notifier);
     final settingsState = ref.read(settingsProvider);
@@ -111,35 +111,33 @@ class ProductNotifier extends AutoDisposeNotifier<Product> {
         userId,
         BridgeTokenRequest(
           product: product,
-          provider: state.provider,
-          companyMapping: state.companyMapping,
+          provider: state.provider.isEmpty ? null : state.provider,
+          companyMapping: state.companyMapping.isEmpty ? null : state.companyMapping,
           account: account,
         ));
 
     console.log('Bridge token response: $response');
 
+    if (response.bridgeToken.isEmpty) return false;
+
     state = state.copyWith(bridgeToken: response.bridgeToken);
+    return true;
   }
 
   void changeProduct(ProductType product) {
     state = state.copyWith(productType: product);
-    fetchBridgeToken();
   }
 
   void changeMapping(String mapping) {
     state = state.copyWith(companyMapping: mapping);
-    fetchBridgeToken();
   }
 
   void changeProvider(String provider) {
     state = state.copyWith(provider: provider);
-    fetchBridgeToken();
   }
 
   void changeAccountSettings(Account account) {
     state = state.copyWith(account: account);
-
-    fetchBridgeToken();
   }
 }
 

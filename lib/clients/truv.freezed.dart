@@ -372,8 +372,10 @@ BridgeTokenRequest _$BridgeTokenRequestFromJson(Map<String, dynamic> json) {
 mixin _$BridgeTokenRequest {
   @JsonKey(name: 'product_type')
   String get product => throw _privateConstructorUsedError;
-  String get provider => throw _privateConstructorUsedError;
-  String get companyMapping => throw _privateConstructorUsedError;
+  @JsonKey(name: 'provider_id', includeIfNull: false)
+  String? get provider => throw _privateConstructorUsedError;
+  @JsonKey(name: 'company_mapping_id', includeIfNull: false)
+  String? get companyMapping => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false)
   Account? get account => throw _privateConstructorUsedError;
 
@@ -395,8 +397,9 @@ abstract class $BridgeTokenRequestCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'product_type') String product,
-      String provider,
-      String companyMapping,
+      @JsonKey(name: 'provider_id', includeIfNull: false) String? provider,
+      @JsonKey(name: 'company_mapping_id', includeIfNull: false)
+      String? companyMapping,
       @JsonKey(includeIfNull: false) Account? account});
 
   $AccountCopyWith<$Res>? get account;
@@ -418,8 +421,8 @@ class _$BridgeTokenRequestCopyWithImpl<$Res, $Val extends BridgeTokenRequest>
   @override
   $Res call({
     Object? product = null,
-    Object? provider = null,
-    Object? companyMapping = null,
+    Object? provider = freezed,
+    Object? companyMapping = freezed,
     Object? account = freezed,
   }) {
     return _then(_value.copyWith(
@@ -427,14 +430,14 @@ class _$BridgeTokenRequestCopyWithImpl<$Res, $Val extends BridgeTokenRequest>
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
               as String,
-      provider: null == provider
+      provider: freezed == provider
           ? _value.provider
           : provider // ignore: cast_nullable_to_non_nullable
-              as String,
-      companyMapping: null == companyMapping
+              as String?,
+      companyMapping: freezed == companyMapping
           ? _value.companyMapping
           : companyMapping // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       account: freezed == account
           ? _value.account
           : account // ignore: cast_nullable_to_non_nullable
@@ -467,8 +470,9 @@ abstract class _$$BridgeTokenRequestImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'product_type') String product,
-      String provider,
-      String companyMapping,
+      @JsonKey(name: 'provider_id', includeIfNull: false) String? provider,
+      @JsonKey(name: 'company_mapping_id', includeIfNull: false)
+      String? companyMapping,
       @JsonKey(includeIfNull: false) Account? account});
 
   @override
@@ -489,8 +493,8 @@ class __$$BridgeTokenRequestImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? product = null,
-    Object? provider = null,
-    Object? companyMapping = null,
+    Object? provider = freezed,
+    Object? companyMapping = freezed,
     Object? account = freezed,
   }) {
     return _then(_$BridgeTokenRequestImpl(
@@ -498,14 +502,14 @@ class __$$BridgeTokenRequestImplCopyWithImpl<$Res>
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
               as String,
-      provider: null == provider
+      provider: freezed == provider
           ? _value.provider
           : provider // ignore: cast_nullable_to_non_nullable
-              as String,
-      companyMapping: null == companyMapping
+              as String?,
+      companyMapping: freezed == companyMapping
           ? _value.companyMapping
           : companyMapping // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       account: freezed == account
           ? _value.account
           : account // ignore: cast_nullable_to_non_nullable
@@ -519,8 +523,9 @@ class __$$BridgeTokenRequestImplCopyWithImpl<$Res>
 class _$BridgeTokenRequestImpl implements _BridgeTokenRequest {
   _$BridgeTokenRequestImpl(
       {@JsonKey(name: 'product_type') required this.product,
-      required this.provider,
-      required this.companyMapping,
+      @JsonKey(name: 'provider_id', includeIfNull: false) this.provider,
+      @JsonKey(name: 'company_mapping_id', includeIfNull: false)
+      this.companyMapping,
       @JsonKey(includeIfNull: false) this.account});
 
   factory _$BridgeTokenRequestImpl.fromJson(Map<String, dynamic> json) =>
@@ -530,9 +535,11 @@ class _$BridgeTokenRequestImpl implements _BridgeTokenRequest {
   @JsonKey(name: 'product_type')
   final String product;
   @override
-  final String provider;
+  @JsonKey(name: 'provider_id', includeIfNull: false)
+  final String? provider;
   @override
-  final String companyMapping;
+  @JsonKey(name: 'company_mapping_id', includeIfNull: false)
+  final String? companyMapping;
   @override
   @JsonKey(includeIfNull: false)
   final Account? account;
@@ -580,8 +587,10 @@ class _$BridgeTokenRequestImpl implements _BridgeTokenRequest {
 abstract class _BridgeTokenRequest implements BridgeTokenRequest {
   factory _BridgeTokenRequest(
           {@JsonKey(name: 'product_type') required final String product,
-          required final String provider,
-          required final String companyMapping,
+          @JsonKey(name: 'provider_id', includeIfNull: false)
+          final String? provider,
+          @JsonKey(name: 'company_mapping_id', includeIfNull: false)
+          final String? companyMapping,
           @JsonKey(includeIfNull: false) final Account? account}) =
       _$BridgeTokenRequestImpl;
 
@@ -592,9 +601,11 @@ abstract class _BridgeTokenRequest implements BridgeTokenRequest {
   @JsonKey(name: 'product_type')
   String get product;
   @override
-  String get provider;
+  @JsonKey(name: 'provider_id', includeIfNull: false)
+  String? get provider;
   @override
-  String get companyMapping;
+  @JsonKey(name: 'company_mapping_id', includeIfNull: false)
+  String? get companyMapping;
   @override
   @JsonKey(includeIfNull: false)
   Account? get account;
