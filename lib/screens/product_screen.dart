@@ -41,18 +41,18 @@ class _ProductScreenState extends ConsumerState {
     ref.read(consoleProvider.notifier).log('bridge ${event.toString()} $jsonText');
   }
 
-  Future<void> showAlert() async {
-    return showDialog<void>(
+  Future<void> showErrorAlert() async {
+    await showDialog<void>(
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Can’t open Truv Bridge'),
           content: const Text(
-              'Add a key or change the environment in the settings to run Truv Bridge.'),
+              'Check the logs to see what went wrong and change the keys in the settings if needed'),
           actions: <Widget>[
             TextButton(
-              child: Text('Open settings'.toUpperCase()),
+              child: Text('Open logs'.toUpperCase()),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -61,6 +61,8 @@ class _ProductScreenState extends ConsumerState {
         );
       },
     );
+    if (!mounted) return;
+    DefaultTabController.of(context).animateTo(kConsoleTabIndex);
   }
 
   @override
@@ -167,9 +169,10 @@ class _ProductScreenState extends ConsumerState {
                         ),
                         onPressed: isLoading ? null : () async {
                           if (!ref.read(settingsProvider).hasCredentials) {
-                            showAlert().whenComplete(
-                              () => DefaultTabController.of(context).animateTo(kSettingsTabIndex),
-                            );
+                            ref
+                                .read(consoleProvider.notifier)
+                                .log("Can't open Truv Bridge: access key or client ID is empty");
+                            showErrorAlert();
                             return;
                           }
 
@@ -179,6 +182,9 @@ class _ProductScreenState extends ConsumerState {
                             isLoading = false;
                             isBridgeOpened = success;
                           });
+                          if (!success) {
+                            showErrorAlert();
+                          }
                         },
                         child: isLoading
                             ? const SizedBox(

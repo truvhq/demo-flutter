@@ -45,7 +45,6 @@ class Settings with _$Settings {
     @Default('') String sandbox,
     @Default('') String development,
     @Default('') String production,
-    String? userId,
     @Default(Backend.production) Backend backend,
   }) = _Settings;
 
@@ -113,9 +112,26 @@ class SettingsState extends StateNotifier<Settings> {
     });
   }
 
-  saveUserId(String userId) {
-    state = state.copyWith(userId: userId);
+  String? _userId;
+  String? _userContext;
+
+  String? get userId {
+    if (_userId == null) return null;
+    if (_userContext != _currentUserContext) {
+      _userId = null;
+      _userContext = null;
+      return null;
+    }
+    return _userId;
   }
+
+  saveUserId(String userId) {
+    _userId = userId;
+    _userContext = _currentUserContext;
+  }
+
+  String get _currentUserContext =>
+      '${state.apiBaseUrl}|${state.clientId}|${state.key}';
 }
 
 var boxProvider = FutureProvider<Box>((ref) => Hive.openBox('settings'));

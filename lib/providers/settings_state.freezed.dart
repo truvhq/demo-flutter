@@ -21,7 +21,6 @@ mixin _$Settings {
   String get sandbox => throw _privateConstructorUsedError;
   String get development => throw _privateConstructorUsedError;
   String get production => throw _privateConstructorUsedError;
-  String? get userId => throw _privateConstructorUsedError;
   Backend get backend => throw _privateConstructorUsedError;
 
   /// Create a copy of Settings
@@ -42,7 +41,6 @@ abstract class $SettingsCopyWith<$Res> {
       String sandbox,
       String development,
       String production,
-      String? userId,
       Backend backend});
 }
 
@@ -66,7 +64,6 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
     Object? sandbox = null,
     Object? development = null,
     Object? production = null,
-    Object? userId = freezed,
     Object? backend = null,
   }) {
     return _then(_value.copyWith(
@@ -90,10 +87,6 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
           ? _value.production
           : production // ignore: cast_nullable_to_non_nullable
               as String,
-      userId: freezed == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String?,
       backend: null == backend
           ? _value.backend
           : backend // ignore: cast_nullable_to_non_nullable
@@ -116,7 +109,6 @@ abstract class _$$SettingsImplCopyWith<$Res>
       String sandbox,
       String development,
       String production,
-      String? userId,
       Backend backend});
 }
 
@@ -138,7 +130,6 @@ class __$$SettingsImplCopyWithImpl<$Res>
     Object? sandbox = null,
     Object? development = null,
     Object? production = null,
-    Object? userId = freezed,
     Object? backend = null,
   }) {
     return _then(_$SettingsImpl(
@@ -162,10 +153,6 @@ class __$$SettingsImplCopyWithImpl<$Res>
           ? _value.production
           : production // ignore: cast_nullable_to_non_nullable
               as String,
-      userId: freezed == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String?,
       backend: null == backend
           ? _value.backend
           : backend // ignore: cast_nullable_to_non_nullable
@@ -183,7 +170,6 @@ class _$SettingsImpl extends _Settings {
       this.sandbox = '',
       this.development = '',
       this.production = '',
-      this.userId,
       this.backend = Backend.production})
       : super._();
 
@@ -203,14 +189,12 @@ class _$SettingsImpl extends _Settings {
   @JsonKey()
   final String production;
   @override
-  final String? userId;
-  @override
   @JsonKey()
   final Backend backend;
 
   @override
   String toString() {
-    return 'Settings(env: $env, clientId: $clientId, sandbox: $sandbox, development: $development, production: $production, userId: $userId, backend: $backend)';
+    return 'Settings(env: $env, clientId: $clientId, sandbox: $sandbox, development: $development, production: $production, backend: $backend)';
   }
 
   @override
@@ -226,13 +210,12 @@ class _$SettingsImpl extends _Settings {
                 other.development == development) &&
             (identical(other.production, production) ||
                 other.production == production) &&
-            (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.backend, backend) || other.backend == backend));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, env, clientId, sandbox,
-      development, production, userId, backend);
+  int get hashCode => Object.hash(
+      runtimeType, env, clientId, sandbox, development, production, backend);
 
   /// Create a copy of Settings
   /// with the given fields replaced by the non-null parameter values.
@@ -250,7 +233,6 @@ abstract class _Settings extends Settings {
       final String sandbox,
       final String development,
       final String production,
-      final String? userId,
       final Backend backend}) = _$SettingsImpl;
   _Settings._() : super._();
 
@@ -264,8 +246,6 @@ abstract class _Settings extends Settings {
   String get development;
   @override
   String get production;
-  @override
-  String? get userId;
   @override
   Backend get backend;
 
