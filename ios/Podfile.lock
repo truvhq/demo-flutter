@@ -27,8 +27,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
-  path_provider_foundation: bb55f6dbba17d0dccd6737fe6f7f34fbd0376880
-  truv_flutter: 3844e6bb33c56a2b75c7848b14c6539163ba3ea3
+  path_provider_foundation: 0b743cbb62d8e47eab856f09262bb8c1ddcfe6ba
+  truv_flutter: 0e286855ae233f86cca1866e4e6dbbd3c8d85557
   TruvSDK: 35c7604e9848de96add6402b2ccc9f2ed1080a7c
 
 PODFILE CHECKSUM: 1efa8702e3c56755e99df3bdd633b3efc1f27133

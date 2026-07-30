@@ -50,7 +50,7 @@ class App extends StatelessWidget {
   }
 }
 
-const kSettingsTabIndex = 3;
+const kConsoleTabIndex = 2;
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});

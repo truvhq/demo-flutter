@@ -53,10 +53,18 @@ class BridgeTokenResponse with _$BridgeTokenResponse {
       _$BridgeTokenResponseFromJson(json);
 }
 
+class TruvApiException implements Exception {
+  final int statusCode;
+  final String body;
+
+  TruvApiException(this.statusCode, this.body);
+}
+
 class TruvApiClient {
   final String _baseUrl;
   final String clientId;
   final String clientSecret;
+  final void Function(String) log;
 
   get _headers => {
         'Content-Type': 'application/json',
@@ -64,10 +72,11 @@ class TruvApiClient {
         'X-Access-Secret': clientSecret,
       };
 
-  const TruvApiClient({
+  TruvApiClient({
     required this.clientId,
     required this.clientSecret,
     required String baseUrl,
+    required this.log,
   }) : _baseUrl = baseUrl;
 
   // https://docs.truv.com/reference/users_create
@@ -77,13 +86,13 @@ class TruvApiClient {
       'external_user_id': externalId,
     });
 
+    _logRequestStart(url, data);
     final response = await http.post(url, body: data, headers: _headers);
 
     try {
       return UserResponse.fromJson(jsonDecode(response.body));
-    } catch (e) {
-      print(e);
-      return UserResponse(id: '', externalUserId: '');
+    } catch (_) {
+      throw TruvApiException(response.statusCode, response.body);
     }
   }
 
@@ -104,17 +113,26 @@ class TruvApiClient {
   Future<BridgeTokenResponse> createBridgeToken(
       String userId, BridgeTokenRequest request) async {
     final url = Uri.parse('$_baseUrl/users/$userId/tokens/');
+    final data = jsonEncode(request.toJson());
 
-    final rawResponse = await http.post(url,
-        body: jsonEncode(request.toJson()), headers: _headers);
-
-    print('XXX ${rawResponse.body}');
+    _logRequestStart(url, data);
+    final rawResponse = await http.post(url, body: data, headers: _headers);
 
     try {
       return BridgeTokenResponse.fromJson(jsonDecode(rawResponse.body));
-    } catch (e) {
-      print(e);
-      return BridgeTokenResponse(bridgeToken: '');
+    } catch (_) {
+      throw TruvApiException(rawResponse.statusCode, rawResponse.body);
     }
+  }
+
+  void _logRequestStart(Uri url, String body) {
+    log('Starting request $url with clientId ${_formatCredential(clientId)} and secret ${_formatCredential(clientSecret)}, body: $body');
+  }
+
+  String _formatCredential(String value) {
+    final dashIndex = value.indexOf('-');
+    final visibleLength = dashIndex >= 0 ? dashIndex + 5 : 4;
+    final visibleEnd = visibleLength < value.length ? visibleLength : value.length;
+    return '"${value.substring(0, visibleEnd)}***"';
   }
 }

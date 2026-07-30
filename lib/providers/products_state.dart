@@ -62,7 +62,6 @@ class ProductNotifier extends AutoDisposeNotifier<Product> {
   Future<bool> fetchBridgeToken() async {
     final apiClient = ref.read(apiClientProvider);
     final console = ref.read(consoleProvider.notifier);
-    final settingsState = ref.read(settingsProvider);
     final settingsNotifier = ref.read(settingsProvider.notifier);
 
     String product = 'income';
@@ -98,30 +97,48 @@ class ProductNotifier extends AutoDisposeNotifier<Product> {
         break;
     }
 
-    var userId = settingsState.userId;
+    var userId = settingsNotifier.userId;
 
     if (userId == null || userId == '') {
-      final user = await apiClient.createUser(const Uuid().v4());
-      userId = user.id;
+      try {
+        final user = await apiClient.createUser(const Uuid().v4());
+        userId = user.id;
 
-      settingsNotifier.saveUserId(userId);
+        settingsNotifier.saveUserId(userId);
+        console.log('User created with id: $userId');
+      } catch (e) {
+        console.log(_requestErrorMessage('User creation', e));
+        return false;
+      }
     }
 
-    final response = await apiClient.createBridgeToken(
-        userId,
-        BridgeTokenRequest(
-          product: product,
-          provider: state.provider.isEmpty ? null : state.provider,
-          companyMapping: state.companyMapping.isEmpty ? null : state.companyMapping,
-          account: account,
-        ));
+    try {
+      final response = await apiClient.createBridgeToken(
+          userId,
+          BridgeTokenRequest(
+            product: product,
+            provider: state.provider.isEmpty ? null : state.provider,
+            companyMapping: state.companyMapping.isEmpty ? null : state.companyMapping,
+            account: account,
+          ));
 
-    console.log('Bridge token response: $response');
+      console.log('Bridge token response: $response');
 
-    if (response.bridgeToken.isEmpty) return false;
+      if (response.bridgeToken.isEmpty) return false;
 
-    state = state.copyWith(bridgeToken: response.bridgeToken);
-    return true;
+      state = state.copyWith(bridgeToken: response.bridgeToken);
+      return true;
+    } catch (e) {
+      console.log(_requestErrorMessage('Bridge token', e));
+      return false;
+    }
+  }
+
+  String _requestErrorMessage(String action, Object error) {
+    if (error is TruvApiException) {
+      return '$action error (HTTP ${error.statusCode}): ${error.body}';
+    }
+    return '$action error: $error';
   }
 
   void changeProduct(ProductType product) {
