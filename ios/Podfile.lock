@@ -1,8 +1,5 @@
 PODS:
   - Flutter (1.0.0)
-  - path_provider_foundation (0.0.1):
-    - Flutter
-    - FlutterMacOS
   - truv_flutter (1.0.0):
     - Flutter
     - TruvSDK (= 1.11.0)
@@ -10,7 +7,6 @@ PODS:
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
-  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - truv_flutter (from `.symlinks/plugins/truv_flutter/ios`)
 
 SPEC REPOS:
@@ -20,17 +16,14 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
-  path_provider_foundation:
-    :path: ".symlinks/plugins/path_provider_foundation/darwin"
   truv_flutter:
     :path: ".symlinks/plugins/truv_flutter/ios"
 
 SPEC CHECKSUMS:
-  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
-  path_provider_foundation: 0b743cbb62d8e47eab856f09262bb8c1ddcfe6ba
-  truv_flutter: 0e286855ae233f86cca1866e4e6dbbd3c8d85557
+  Flutter: 71a624a5bc0c04062bf19101d501e466baf2fb47
+  truv_flutter: 3844e6bb33c56a2b75c7848b14c6539163ba3ea3
   TruvSDK: 35c7604e9848de96add6402b2ccc9f2ed1080a7c
 
-PODFILE CHECKSUM: 1efa8702e3c56755e99df3bdd633b3efc1f27133
+PODFILE CHECKSUM: 3071e2bc744af67508b16e3af23785e421dccdd3
 
-COCOAPODS: 1.16.2
+COCOAPODS: 1.17.0
