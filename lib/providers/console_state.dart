@@ -1,12 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ConsoleState extends StateNotifier<String> {
-  ConsoleState() : super('');
+class ConsoleState extends Notifier<String> {
+  @override
+  String build() => '';
 
-  log(String log) {
-    state = state + '\n\n' + log;
+  void log(String message) {
+    state = '$state\n\n$message';
   }
 }
 
-var consoleProvider =
-    StateNotifierProvider<ConsoleState, String>((ref) => ConsoleState());
+final consoleProvider =
+    NotifierProvider<ConsoleState, String>(ConsoleState.new);

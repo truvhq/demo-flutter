@@ -9,7 +9,7 @@ part 'truv.freezed.dart';
 part 'truv.g.dart';
 
 @freezed
-class UserResponse with _$UserResponse {
+abstract class UserResponse with _$UserResponse {
   factory UserResponse({
     @JsonKey(name: 'id') required String id,
     @JsonKey(name: 'external_user_id') required String externalUserId,
@@ -20,7 +20,7 @@ class UserResponse with _$UserResponse {
 }
 
 @freezed
-class GetUserResponse with _$GetUserResponse {
+abstract class GetUserResponse with _$GetUserResponse {
   factory GetUserResponse({
     required String id,
     required String externalUserId,
@@ -31,7 +31,7 @@ class GetUserResponse with _$GetUserResponse {
 }
 
 @freezed
-class BridgeTokenRequest with _$BridgeTokenRequest {
+abstract class BridgeTokenRequest with _$BridgeTokenRequest {
   factory BridgeTokenRequest({
     @JsonKey(name: 'product_type') required String product,
     @JsonKey(name: 'provider_id', includeIfNull: false) String? provider,
@@ -44,7 +44,7 @@ class BridgeTokenRequest with _$BridgeTokenRequest {
 }
 
 @freezed
-class BridgeTokenResponse with _$BridgeTokenResponse {
+abstract class BridgeTokenResponse with _$BridgeTokenResponse {
   factory BridgeTokenResponse({
     @JsonKey(name: 'bridge_token') required String bridgeToken,
   }) = _BridgeTokenResponse;
@@ -66,7 +66,7 @@ class TruvApiClient {
   final String clientSecret;
   final void Function(String) log;
 
-  get _headers => {
+  Map<String, String> get _headers => {
         'Content-Type': 'application/json',
         'X-Access-Client-Id': clientId,
         'X-Access-Secret': clientSecret,
@@ -75,9 +75,9 @@ class TruvApiClient {
   TruvApiClient({
     required this.clientId,
     required this.clientSecret,
-    required String baseUrl,
+    required this._baseUrl,
     required this.log,
-  }) : _baseUrl = baseUrl;
+  });
 
   // https://docs.truv.com/reference/users_create
   Future<UserResponse> createUser(String externalId) async {
@@ -104,7 +104,7 @@ class TruvApiClient {
     try {
       return UserResponse.fromJson(jsonDecode(response.body)[0]);
     } catch (e) {
-      print(e);
+      log('Get user error: $e');
       return UserResponse(id: '', externalUserId: '');
     }
   }

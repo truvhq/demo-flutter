@@ -6,35 +6,32 @@ part of 'truv.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UserResponseImpl _$$UserResponseImplFromJson(Map<String, dynamic> json) =>
-    _$UserResponseImpl(
+_UserResponse _$UserResponseFromJson(Map<String, dynamic> json) =>
+    _UserResponse(
       id: json['id'] as String,
       externalUserId: json['external_user_id'] as String,
     );
 
-Map<String, dynamic> _$$UserResponseImplToJson(_$UserResponseImpl instance) =>
+Map<String, dynamic> _$UserResponseToJson(_UserResponse instance) =>
     <String, dynamic>{
       'id': instance.id,
       'external_user_id': instance.externalUserId,
     };
 
-_$GetUserResponseImpl _$$GetUserResponseImplFromJson(
-        Map<String, dynamic> json) =>
-    _$GetUserResponseImpl(
+_GetUserResponse _$GetUserResponseFromJson(Map<String, dynamic> json) =>
+    _GetUserResponse(
       id: json['id'] as String,
       externalUserId: json['externalUserId'] as String,
     );
 
-Map<String, dynamic> _$$GetUserResponseImplToJson(
-        _$GetUserResponseImpl instance) =>
+Map<String, dynamic> _$GetUserResponseToJson(_GetUserResponse instance) =>
     <String, dynamic>{
       'id': instance.id,
       'externalUserId': instance.externalUserId,
     };
 
-_$BridgeTokenRequestImpl _$$BridgeTokenRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$BridgeTokenRequestImpl(
+_BridgeTokenRequest _$BridgeTokenRequestFromJson(Map<String, dynamic> json) =>
+    _BridgeTokenRequest(
       product: json['product_type'] as String,
       provider: json['provider_id'] as String?,
       companyMapping: json['company_mapping_id'] as String?,
@@ -43,24 +40,17 @@ _$BridgeTokenRequestImpl _$$BridgeTokenRequestImplFromJson(
           : Account.fromJson(json['account'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$BridgeTokenRequestImplToJson(
-        _$BridgeTokenRequestImpl instance) =>
+Map<String, dynamic> _$BridgeTokenRequestToJson(_BridgeTokenRequest instance) =>
     <String, dynamic>{
       'product_type': instance.product,
-      if (instance.provider case final value?) 'provider_id': value,
-      if (instance.companyMapping case final value?)
-        'company_mapping_id': value,
-      if (instance.account case final value?) 'account': value,
+      'provider_id': ?instance.provider,
+      'company_mapping_id': ?instance.companyMapping,
+      'account': ?instance.account,
     };
 
-_$BridgeTokenResponseImpl _$$BridgeTokenResponseImplFromJson(
-        Map<String, dynamic> json) =>
-    _$BridgeTokenResponseImpl(
-      bridgeToken: json['bridge_token'] as String,
-    );
+_BridgeTokenResponse _$BridgeTokenResponseFromJson(Map<String, dynamic> json) =>
+    _BridgeTokenResponse(bridgeToken: json['bridge_token'] as String);
 
-Map<String, dynamic> _$$BridgeTokenResponseImplToJson(
-        _$BridgeTokenResponseImpl instance) =>
-    <String, dynamic>{
-      'bridge_token': instance.bridgeToken,
-    };
+Map<String, dynamic> _$BridgeTokenResponseToJson(
+  _BridgeTokenResponse instance,
+) => <String, dynamic>{'bridge_token': instance.bridgeToken};

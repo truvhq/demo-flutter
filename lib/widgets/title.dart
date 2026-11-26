@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class ScreenTitle extends StatelessWidget {
   final String text;
 
-  const ScreenTitle(this.text, {Key? key}) : super(key: key);
+  const ScreenTitle(this.text, {super.key});
 
   @override
   Widget build(BuildContext context) {

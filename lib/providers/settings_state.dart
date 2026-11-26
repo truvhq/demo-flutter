@@ -36,7 +36,7 @@ const _orderUrlMap = {
 };
 
 @freezed
-class Settings with _$Settings {
+abstract class Settings with _$Settings {
   Settings._();
 
   factory Settings({
@@ -48,7 +48,7 @@ class Settings with _$Settings {
     @Default(Backend.production) Backend backend,
   }) = _Settings;
 
-  get key {
+  String get key {
     if (env == Env.dev) {
       return development;
     } else if (env == Env.prod) {
@@ -60,7 +60,7 @@ class Settings with _$Settings {
 
   String get stringEnv => env.toString().split('.').last;
 
-  get hasCredentials {
+  bool get hasCredentials {
     return key != '' && clientId != '';
   }
 
@@ -85,21 +85,25 @@ Backend backendFromString(String? value) {
       orElse: () => Backend.production);
 }
 
-class SettingsState extends StateNotifier<Settings> {
-  SettingsState(this._box) : super(Settings()) {
-    state = Settings(
-      env: envFromString(_box?.get('env') ?? 'sandbox'),
-      clientId: _box?.get('clientId') ?? '',
-      sandbox: _box?.get('sandbox') ?? '',
-      development: _box?.get('development') ?? '',
-      production: _box?.get('production') ?? '',
-      backend: backendFromString(_box?.get('backend') as String?),
+class SettingsState extends Notifier<Settings> {
+  // Riverpod recreates the notifier whenever the provider rebuilds,
+  // e.g. once the Hive box has been opened.
+  Box? _box;
+
+  @override
+  Settings build() {
+    final box = _box = ref.watch(boxProvider).value;
+    return Settings(
+      env: envFromString(box?.get('env') ?? 'sandbox'),
+      clientId: box?.get('clientId') ?? '',
+      sandbox: box?.get('sandbox') ?? '',
+      development: box?.get('development') ?? '',
+      production: box?.get('production') ?? '',
+      backend: backendFromString(box?.get('backend') as String?),
     );
   }
 
-  final Box? _box;
-
-  update(Settings settings) {
+  void update(Settings settings) {
     state = settings;
 
     _box?.putAll({
@@ -125,7 +129,7 @@ class SettingsState extends StateNotifier<Settings> {
     return _userId;
   }
 
-  saveUserId(String userId) {
+  void saveUserId(String userId) {
     _userId = userId;
     _userContext = _currentUserContext;
   }
@@ -134,11 +138,7 @@ class SettingsState extends StateNotifier<Settings> {
       '${state.apiBaseUrl}|${state.clientId}|${state.key}';
 }
 
-var boxProvider = FutureProvider<Box>((ref) => Hive.openBox('settings'));
+final boxProvider = FutureProvider<Box>((ref) => Hive.openBox('settings'));
 
-var settingsProvider = StateNotifierProvider<SettingsState, Settings>(
-  (ref) {
-    var box = ref.watch(boxProvider);
-    return SettingsState(box.value);
-  },
-);
+final settingsProvider =
+    NotifierProvider<SettingsState, Settings>(SettingsState.new);

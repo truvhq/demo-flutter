@@ -8,7 +8,7 @@ import 'package:truv_demo_flutter/widgets/title.dart';
 import 'package:truv_flutter/truv_event.dart';
 import 'package:truv_flutter/truv_flutter.dart';
 import 'package:truv_demo_flutter/main.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

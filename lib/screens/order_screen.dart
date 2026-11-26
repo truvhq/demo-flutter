@@ -4,7 +4,7 @@ import 'package:truv_demo_flutter/providers/console_state.dart';
 import 'package:truv_demo_flutter/providers/settings_state.dart';
 import 'package:truv_flutter/truv_event.dart';
 import 'package:truv_flutter/truv_flutter.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class OrderScreen extends ConsumerStatefulWidget {

@@ -3,7 +3,7 @@ import 'package:truv_demo_flutter/screens/order_screen.dart';
 import 'package:truv_demo_flutter/screens/product_screen.dart';
 import 'package:truv_demo_flutter/screens/settings_screen.dart';
 import 'package:truv_demo_flutter/tabs.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
