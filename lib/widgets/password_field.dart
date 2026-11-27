@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 typedef Callback = Function(String value);
 
@@ -8,14 +8,14 @@ class PasswordField extends StatefulWidget {
   final String label;
 
   const PasswordField({
-    Key? key,
+    super.key,
     required this.controller,
     required this.onChanged,
     required this.label,
-  }) : super(key: key);
+  });
 
   @override
-  _PasswordFieldState createState() => _PasswordFieldState();
+  State<PasswordField> createState() => _PasswordFieldState();
 }
 
 class _PasswordFieldState extends State<PasswordField> {

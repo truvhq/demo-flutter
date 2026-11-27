@@ -22,7 +22,7 @@ enum ProductType {
 }
 
 @freezed
-class Account with _$Account {
+abstract class Account with _$Account {
   factory Account({
     @JsonKey(name: 'routing_number') @Default('12345678') String routingNumber,
     @JsonKey(name: 'account_number') @Default('21234234') String accountNumber,
@@ -37,7 +37,7 @@ class Account with _$Account {
 }
 
 @freezed
-class Product with _$Product {
+abstract class Product with _$Product {
   Product._();
 
   factory Product({
@@ -51,11 +51,9 @@ class Product with _$Product {
   bool get noToken => bridgeToken == '';
 }
 
-class ProductNotifier extends AutoDisposeNotifier<Product> {
-  ProductNotifier();
-
+class ProductNotifier extends Notifier<Product> {
   @override
-  build() {
+  Product build() {
     return Product(account: Account());
   }
 
@@ -158,5 +156,5 @@ class ProductNotifier extends AutoDisposeNotifier<Product> {
   }
 }
 
-var productProvider =
-    AutoDisposeNotifierProvider<ProductNotifier, Product>(ProductNotifier.new);
+final productProvider =
+    NotifierProvider.autoDispose<ProductNotifier, Product>(ProductNotifier.new);

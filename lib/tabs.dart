@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Tabs extends StatefulWidget {
   final TabController? controller;
 
-  const Tabs({Key? key, required this.controller}) : super(key: key);
+  const Tabs({super.key, required this.controller});
 
   @override
-  _TabsState createState() => _TabsState();
+  State<Tabs> createState() => _TabsState();
 }
 
 class _TabsState extends State<Tabs> {
@@ -20,47 +20,37 @@ class _TabsState extends State<Tabs> {
     });
   }
 
+  Widget _icon(String asset, int index, ColorScheme colorScheme) {
+    final color = widget.controller?.index == index
+        ? colorScheme.primary
+        : colorScheme.secondary;
+    return SvgPicture.asset(
+      asset,
+      colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    var colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return TabBar(
       controller: widget.controller,
       tabs: [
         Tab(
-          icon: SvgPicture.asset(
-            'assets/icons/product.svg',
-            color: widget.controller?.index == 0
-                ? colorScheme.primary
-                : colorScheme.secondary,
-          ),
+          icon: _icon('assets/icons/product.svg', 0, colorScheme),
           text: 'Product',
         ),
         Tab(
-          icon: SvgPicture.asset(
-            'assets/icons/order.svg',
-            color: widget.controller?.index == 1
-                ? colorScheme.primary
-                : colorScheme.secondary,
-          ),
+          icon: _icon('assets/icons/order.svg', 1, colorScheme),
           text: 'Order',
         ),
         Tab(
-          icon: SvgPicture.asset(
-            'assets/icons/console.svg',
-            color: widget.controller?.index == 2
-                ? colorScheme.primary
-                : colorScheme.secondary,
-          ),
+          icon: _icon('assets/icons/console.svg', 2, colorScheme),
           text: 'Console',
         ),
         Tab(
-          icon: SvgPicture.asset(
-            'assets/icons/settings.svg',
-            color: widget.controller?.index == 3
-                ? colorScheme.primary
-                : colorScheme.secondary,
-          ),
+          icon: _icon('assets/icons/settings.svg', 3, colorScheme),
           text: 'Settings',
         ),
       ],

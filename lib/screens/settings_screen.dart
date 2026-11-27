@@ -1,11 +1,11 @@
 import 'package:truv_demo_flutter/providers/settings_state.dart';
 import 'package:truv_demo_flutter/widgets/password_field.dart';
 import 'package:truv_demo_flutter/widgets/title.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SettingsScreen extends ConsumerStatefulWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+  const SettingsScreen({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() {
@@ -45,7 +45,7 @@ class _SettingsState extends ConsumerState {
               border: OutlineInputBorder(),
               label: Text('Backend'),
             ),
-            value: settings.backend,
+            initialValue: settings.backend,
             onChanged: (Backend? newValue) => ref
                 .read(settingsProvider.notifier)
                 .update(settings.copyWith(backend: newValue ?? Backend.production)),
@@ -61,14 +61,14 @@ class _SettingsState extends ConsumerState {
               border: OutlineInputBorder(),
               label: Text('Environment'),
             ),
-            value: settings.stringEnv,
+            initialValue: settings.stringEnv,
             onChanged: (String? newValue) => ref
                 .read(settingsProvider.notifier)
                 .update(settings.copyWith(env: envFromString(newValue))),
             items: const [
-              DropdownMenuItem(child: Text('Sandbox'), value: 'sandbox'),
-              DropdownMenuItem(child: Text('Development'), value: 'dev'),
-              DropdownMenuItem(child: Text('Production'), value: 'prod'),
+              DropdownMenuItem(value: 'sandbox', child: Text('Sandbox')),
+              DropdownMenuItem(value: 'dev', child: Text('Development')),
+              DropdownMenuItem(value: 'prod', child: Text('Production')),
             ],
           ),
           const SizedBox(height: 12.0),

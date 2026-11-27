@@ -1,6 +1,6 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
+// coverage:ignore-file
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'truv.dart';
@@ -9,768 +9,1126 @@ part of 'truv.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-UserResponse _$UserResponseFromJson(Map<String, dynamic> json) {
-  return _UserResponse.fromJson(json);
-}
 
 /// @nodoc
 mixin _$UserResponse {
-  @JsonKey(name: 'id')
-  String get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'external_user_id')
-  String get externalUserId => throw _privateConstructorUsedError;
+
+@JsonKey(name: 'id') String get id;@JsonKey(name: 'external_user_id') String get externalUserId;
+/// Create a copy of UserResponse
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UserResponseCopyWith<UserResponse> get copyWith => _$UserResponseCopyWithImpl<UserResponse>(this as UserResponse, _$identity);
 
   /// Serializes this UserResponse to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of UserResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $UserResponseCopyWith<UserResponse> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  final _this = this as UserResponse;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserResponse&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.externalUserId, _this.externalUserId) || other.externalUserId == _this.externalUserId));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+  final _this = this as UserResponse;
+  return Object.hash(runtimeType,_this.id,_this.externalUserId);
+}
+
+@override
+String toString() {
+  final _this = this as UserResponse;
+  return 'UserResponse(id: ${_this.id}, externalUserId: ${_this.externalUserId})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $UserResponseCopyWith<$Res> {
-  factory $UserResponseCopyWith(
-          UserResponse value, $Res Function(UserResponse) then) =
-      _$UserResponseCopyWithImpl<$Res, UserResponse>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: 'id') String id,
-      @JsonKey(name: 'external_user_id') String externalUserId});
-}
+abstract mixin class $UserResponseCopyWith<$Res>  {
+  factory $UserResponseCopyWith(UserResponse value, $Res Function(UserResponse) _then) = _$UserResponseCopyWithImpl;
+@useResult
+$Res call({
+@JsonKey(name: 'id') String id,@JsonKey(name: 'external_user_id') String externalUserId
+});
 
+
+
+
+}
 /// @nodoc
-class _$UserResponseCopyWithImpl<$Res, $Val extends UserResponse>
+class _$UserResponseCopyWithImpl<$Res>
     implements $UserResponseCopyWith<$Res> {
-  _$UserResponseCopyWithImpl(this._value, this._then);
+  _$UserResponseCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final UserResponse _self;
+  final $Res Function(UserResponse) _then;
 
-  /// Create a copy of UserResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? externalUserId = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      externalUserId: null == externalUserId
-          ? _value.externalUserId
-          : externalUserId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of UserResponse
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? externalUserId = null,}) {
+  return _then(UserResponse(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,externalUserId: null == externalUserId ? _self.externalUserId : externalUserId // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$UserResponseImplCopyWith<$Res>
-    implements $UserResponseCopyWith<$Res> {
-  factory _$$UserResponseImplCopyWith(
-          _$UserResponseImpl value, $Res Function(_$UserResponseImpl) then) =
-      __$$UserResponseImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: 'id') String id,
-      @JsonKey(name: 'external_user_id') String externalUserId});
 }
 
-/// @nodoc
-class __$$UserResponseImplCopyWithImpl<$Res>
-    extends _$UserResponseCopyWithImpl<$Res, _$UserResponseImpl>
-    implements _$$UserResponseImplCopyWith<$Res> {
-  __$$UserResponseImplCopyWithImpl(
-      _$UserResponseImpl _value, $Res Function(_$UserResponseImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of UserResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? externalUserId = null,
-  }) {
-    return _then(_$UserResponseImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      externalUserId: null == externalUserId
-          ? _value.externalUserId
-          : externalUserId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Adds pattern-matching-related methods to [UserResponse].
+extension UserResponsePatterns on UserResponse {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _UserResponse value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _UserResponse() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _UserResponse value)  $default,){
+final _that = this;
+switch (_that) {
+case _UserResponse():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _UserResponse value)?  $default,){
+final _that = this;
+switch (_that) {
+case _UserResponse() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  String id, @JsonKey(name: 'external_user_id')  String externalUserId)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _UserResponse() when $default != null:
+return $default(_that.id,_that.externalUserId);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  String id, @JsonKey(name: 'external_user_id')  String externalUserId)  $default,) {final _that = this;
+switch (_that) {
+case _UserResponse():
+return $default(_that.id,_that.externalUserId);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'id')  String id, @JsonKey(name: 'external_user_id')  String externalUserId)?  $default,) {final _that = this;
+switch (_that) {
+case _UserResponse() when $default != null:
+return $default(_that.id,_that.externalUserId);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$UserResponseImpl implements _UserResponse {
-  _$UserResponseImpl(
-      {@JsonKey(name: 'id') required this.id,
-      @JsonKey(name: 'external_user_id') required this.externalUserId});
 
-  factory _$UserResponseImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UserResponseImplFromJson(json);
+class _UserResponse implements UserResponse {
+   _UserResponse({@JsonKey(name: 'id') required this.id, @JsonKey(name: 'external_user_id') required this.externalUserId});
+  factory _UserResponse.fromJson(Map<String, dynamic> json) => _$UserResponseFromJson(json);
 
-  @override
-  @JsonKey(name: 'id')
-  final String id;
-  @override
-  @JsonKey(name: 'external_user_id')
-  final String externalUserId;
+@override@JsonKey(name: 'id') final  String id;
+@override@JsonKey(name: 'external_user_id') final  String externalUserId;
 
-  @override
-  String toString() {
+/// Create a copy of UserResponse
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$UserResponseCopyWith<_UserResponse> get copyWith => __$UserResponseCopyWithImpl<_UserResponse>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$UserResponseToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserResponse&&(identical(other.id, id) || other.id == id)&&(identical(other.externalUserId, externalUserId) || other.externalUserId == externalUserId));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,id,externalUserId);
+}
+
+@override
+String toString() {
     return 'UserResponse(id: $id, externalUserId: $externalUserId)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UserResponseImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.externalUserId, externalUserId) ||
-                other.externalUserId == externalUserId));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, id, externalUserId);
-
-  /// Create a copy of UserResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UserResponseImplCopyWith<_$UserResponseImpl> get copyWith =>
-      __$$UserResponseImplCopyWithImpl<_$UserResponseImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$UserResponseImplToJson(
-      this,
-    );
-  }
 }
 
-abstract class _UserResponse implements UserResponse {
-  factory _UserResponse(
-      {@JsonKey(name: 'id') required final String id,
-      @JsonKey(name: 'external_user_id')
-      required final String externalUserId}) = _$UserResponseImpl;
 
-  factory _UserResponse.fromJson(Map<String, dynamic> json) =
-      _$UserResponseImpl.fromJson;
-
-  @override
-  @JsonKey(name: 'id')
-  String get id;
-  @override
-  @JsonKey(name: 'external_user_id')
-  String get externalUserId;
-
-  /// Create a copy of UserResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UserResponseImplCopyWith<_$UserResponseImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
-GetUserResponse _$GetUserResponseFromJson(Map<String, dynamic> json) {
-  return _GetUserResponse.fromJson(json);
+/// @nodoc
+abstract mixin class _$UserResponseCopyWith<$Res> implements $UserResponseCopyWith<$Res> {
+  factory _$UserResponseCopyWith(_UserResponse value, $Res Function(_UserResponse) _then) = __$UserResponseCopyWithImpl;
+@override @useResult
+$Res call({
+@JsonKey(name: 'id') String id,@JsonKey(name: 'external_user_id') String externalUserId
+});
+
+
+
+
 }
+/// @nodoc
+class __$UserResponseCopyWithImpl<$Res>
+    implements _$UserResponseCopyWith<$Res> {
+  __$UserResponseCopyWithImpl(this._self, this._then);
+
+  final _UserResponse _self;
+  final $Res Function(_UserResponse) _then;
+
+/// Create a copy of UserResponse
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? externalUserId = null,}) {
+  return _then(_UserResponse(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,externalUserId: null == externalUserId ? _self.externalUserId : externalUserId // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$GetUserResponse {
-  String get id => throw _privateConstructorUsedError;
-  String get externalUserId => throw _privateConstructorUsedError;
+
+ String get id; String get externalUserId;
+/// Create a copy of GetUserResponse
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$GetUserResponseCopyWith<GetUserResponse> get copyWith => _$GetUserResponseCopyWithImpl<GetUserResponse>(this as GetUserResponse, _$identity);
 
   /// Serializes this GetUserResponse to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of GetUserResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $GetUserResponseCopyWith<GetUserResponse> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  final _this = this as GetUserResponse;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetUserResponse&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.externalUserId, _this.externalUserId) || other.externalUserId == _this.externalUserId));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+  final _this = this as GetUserResponse;
+  return Object.hash(runtimeType,_this.id,_this.externalUserId);
+}
+
+@override
+String toString() {
+  final _this = this as GetUserResponse;
+  return 'GetUserResponse(id: ${_this.id}, externalUserId: ${_this.externalUserId})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $GetUserResponseCopyWith<$Res> {
-  factory $GetUserResponseCopyWith(
-          GetUserResponse value, $Res Function(GetUserResponse) then) =
-      _$GetUserResponseCopyWithImpl<$Res, GetUserResponse>;
-  @useResult
-  $Res call({String id, String externalUserId});
-}
+abstract mixin class $GetUserResponseCopyWith<$Res>  {
+  factory $GetUserResponseCopyWith(GetUserResponse value, $Res Function(GetUserResponse) _then) = _$GetUserResponseCopyWithImpl;
+@useResult
+$Res call({
+ String id, String externalUserId
+});
 
+
+
+
+}
 /// @nodoc
-class _$GetUserResponseCopyWithImpl<$Res, $Val extends GetUserResponse>
+class _$GetUserResponseCopyWithImpl<$Res>
     implements $GetUserResponseCopyWith<$Res> {
-  _$GetUserResponseCopyWithImpl(this._value, this._then);
+  _$GetUserResponseCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final GetUserResponse _self;
+  final $Res Function(GetUserResponse) _then;
 
-  /// Create a copy of GetUserResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? externalUserId = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      externalUserId: null == externalUserId
-          ? _value.externalUserId
-          : externalUserId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of GetUserResponse
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? externalUserId = null,}) {
+  return _then(GetUserResponse(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,externalUserId: null == externalUserId ? _self.externalUserId : externalUserId // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$GetUserResponseImplCopyWith<$Res>
-    implements $GetUserResponseCopyWith<$Res> {
-  factory _$$GetUserResponseImplCopyWith(_$GetUserResponseImpl value,
-          $Res Function(_$GetUserResponseImpl) then) =
-      __$$GetUserResponseImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String id, String externalUserId});
 }
 
-/// @nodoc
-class __$$GetUserResponseImplCopyWithImpl<$Res>
-    extends _$GetUserResponseCopyWithImpl<$Res, _$GetUserResponseImpl>
-    implements _$$GetUserResponseImplCopyWith<$Res> {
-  __$$GetUserResponseImplCopyWithImpl(
-      _$GetUserResponseImpl _value, $Res Function(_$GetUserResponseImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of GetUserResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? externalUserId = null,
-  }) {
-    return _then(_$GetUserResponseImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      externalUserId: null == externalUserId
-          ? _value.externalUserId
-          : externalUserId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Adds pattern-matching-related methods to [GetUserResponse].
+extension GetUserResponsePatterns on GetUserResponse {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _GetUserResponse value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _GetUserResponse() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _GetUserResponse value)  $default,){
+final _that = this;
+switch (_that) {
+case _GetUserResponse():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _GetUserResponse value)?  $default,){
+final _that = this;
+switch (_that) {
+case _GetUserResponse() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String externalUserId)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _GetUserResponse() when $default != null:
+return $default(_that.id,_that.externalUserId);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String externalUserId)  $default,) {final _that = this;
+switch (_that) {
+case _GetUserResponse():
+return $default(_that.id,_that.externalUserId);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String externalUserId)?  $default,) {final _that = this;
+switch (_that) {
+case _GetUserResponse() when $default != null:
+return $default(_that.id,_that.externalUserId);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$GetUserResponseImpl implements _GetUserResponse {
-  _$GetUserResponseImpl({required this.id, required this.externalUserId});
 
-  factory _$GetUserResponseImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GetUserResponseImplFromJson(json);
+class _GetUserResponse implements GetUserResponse {
+   _GetUserResponse({required this.id, required this.externalUserId});
+  factory _GetUserResponse.fromJson(Map<String, dynamic> json) => _$GetUserResponseFromJson(json);
 
-  @override
-  final String id;
-  @override
-  final String externalUserId;
+@override final  String id;
+@override final  String externalUserId;
 
-  @override
-  String toString() {
+/// Create a copy of GetUserResponse
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$GetUserResponseCopyWith<_GetUserResponse> get copyWith => __$GetUserResponseCopyWithImpl<_GetUserResponse>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$GetUserResponseToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetUserResponse&&(identical(other.id, id) || other.id == id)&&(identical(other.externalUserId, externalUserId) || other.externalUserId == externalUserId));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,id,externalUserId);
+}
+
+@override
+String toString() {
     return 'GetUserResponse(id: $id, externalUserId: $externalUserId)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetUserResponseImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.externalUserId, externalUserId) ||
-                other.externalUserId == externalUserId));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, id, externalUserId);
-
-  /// Create a copy of GetUserResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetUserResponseImplCopyWith<_$GetUserResponseImpl> get copyWith =>
-      __$$GetUserResponseImplCopyWithImpl<_$GetUserResponseImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GetUserResponseImplToJson(
-      this,
-    );
-  }
 }
 
-abstract class _GetUserResponse implements GetUserResponse {
-  factory _GetUserResponse(
-      {required final String id,
-      required final String externalUserId}) = _$GetUserResponseImpl;
 
-  factory _GetUserResponse.fromJson(Map<String, dynamic> json) =
-      _$GetUserResponseImpl.fromJson;
-
-  @override
-  String get id;
-  @override
-  String get externalUserId;
-
-  /// Create a copy of GetUserResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetUserResponseImplCopyWith<_$GetUserResponseImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
-BridgeTokenRequest _$BridgeTokenRequestFromJson(Map<String, dynamic> json) {
-  return _BridgeTokenRequest.fromJson(json);
+/// @nodoc
+abstract mixin class _$GetUserResponseCopyWith<$Res> implements $GetUserResponseCopyWith<$Res> {
+  factory _$GetUserResponseCopyWith(_GetUserResponse value, $Res Function(_GetUserResponse) _then) = __$GetUserResponseCopyWithImpl;
+@override @useResult
+$Res call({
+ String id, String externalUserId
+});
+
+
+
+
 }
+/// @nodoc
+class __$GetUserResponseCopyWithImpl<$Res>
+    implements _$GetUserResponseCopyWith<$Res> {
+  __$GetUserResponseCopyWithImpl(this._self, this._then);
+
+  final _GetUserResponse _self;
+  final $Res Function(_GetUserResponse) _then;
+
+/// Create a copy of GetUserResponse
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? externalUserId = null,}) {
+  return _then(_GetUserResponse(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,externalUserId: null == externalUserId ? _self.externalUserId : externalUserId // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$BridgeTokenRequest {
-  @JsonKey(name: 'product_type')
-  String get product => throw _privateConstructorUsedError;
-  @JsonKey(name: 'provider_id', includeIfNull: false)
-  String? get provider => throw _privateConstructorUsedError;
-  @JsonKey(name: 'company_mapping_id', includeIfNull: false)
-  String? get companyMapping => throw _privateConstructorUsedError;
-  @JsonKey(includeIfNull: false)
-  Account? get account => throw _privateConstructorUsedError;
+
+@JsonKey(name: 'product_type') String get product;@JsonKey(name: 'provider_id', includeIfNull: false) String? get provider;@JsonKey(name: 'company_mapping_id', includeIfNull: false) String? get companyMapping;@JsonKey(includeIfNull: false) Account? get account;
+/// Create a copy of BridgeTokenRequest
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$BridgeTokenRequestCopyWith<BridgeTokenRequest> get copyWith => _$BridgeTokenRequestCopyWithImpl<BridgeTokenRequest>(this as BridgeTokenRequest, _$identity);
 
   /// Serializes this BridgeTokenRequest to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of BridgeTokenRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $BridgeTokenRequestCopyWith<BridgeTokenRequest> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  final _this = this as BridgeTokenRequest;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BridgeTokenRequest&&(identical(other.product, _this.product) || other.product == _this.product)&&(identical(other.provider, _this.provider) || other.provider == _this.provider)&&(identical(other.companyMapping, _this.companyMapping) || other.companyMapping == _this.companyMapping)&&(identical(other.account, _this.account) || other.account == _this.account));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+  final _this = this as BridgeTokenRequest;
+  return Object.hash(runtimeType,_this.product,_this.provider,_this.companyMapping,_this.account);
+}
+
+@override
+String toString() {
+  final _this = this as BridgeTokenRequest;
+  return 'BridgeTokenRequest(product: ${_this.product}, provider: ${_this.provider}, companyMapping: ${_this.companyMapping}, account: ${_this.account})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $BridgeTokenRequestCopyWith<$Res> {
-  factory $BridgeTokenRequestCopyWith(
-          BridgeTokenRequest value, $Res Function(BridgeTokenRequest) then) =
-      _$BridgeTokenRequestCopyWithImpl<$Res, BridgeTokenRequest>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: 'product_type') String product,
-      @JsonKey(name: 'provider_id', includeIfNull: false) String? provider,
-      @JsonKey(name: 'company_mapping_id', includeIfNull: false)
-      String? companyMapping,
-      @JsonKey(includeIfNull: false) Account? account});
+abstract mixin class $BridgeTokenRequestCopyWith<$Res>  {
+  factory $BridgeTokenRequestCopyWith(BridgeTokenRequest value, $Res Function(BridgeTokenRequest) _then) = _$BridgeTokenRequestCopyWithImpl;
+@useResult
+$Res call({
+@JsonKey(name: 'product_type') String product,@JsonKey(name: 'provider_id', includeIfNull: false) String? provider,@JsonKey(name: 'company_mapping_id', includeIfNull: false) String? companyMapping,@JsonKey(includeIfNull: false) Account? account
+});
 
-  $AccountCopyWith<$Res>? get account;
+
+$AccountCopyWith<$Res>? get account;
+
 }
-
 /// @nodoc
-class _$BridgeTokenRequestCopyWithImpl<$Res, $Val extends BridgeTokenRequest>
+class _$BridgeTokenRequestCopyWithImpl<$Res>
     implements $BridgeTokenRequestCopyWith<$Res> {
-  _$BridgeTokenRequestCopyWithImpl(this._value, this._then);
+  _$BridgeTokenRequestCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final BridgeTokenRequest _self;
+  final $Res Function(BridgeTokenRequest) _then;
 
-  /// Create a copy of BridgeTokenRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? product = null,
-    Object? provider = freezed,
-    Object? companyMapping = freezed,
-    Object? account = freezed,
-  }) {
-    return _then(_value.copyWith(
-      product: null == product
-          ? _value.product
-          : product // ignore: cast_nullable_to_non_nullable
-              as String,
-      provider: freezed == provider
-          ? _value.provider
-          : provider // ignore: cast_nullable_to_non_nullable
-              as String?,
-      companyMapping: freezed == companyMapping
-          ? _value.companyMapping
-          : companyMapping // ignore: cast_nullable_to_non_nullable
-              as String?,
-      account: freezed == account
-          ? _value.account
-          : account // ignore: cast_nullable_to_non_nullable
-              as Account?,
-    ) as $Val);
+/// Create a copy of BridgeTokenRequest
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? product = null,Object? provider = freezed,Object? companyMapping = freezed,Object? account = freezed,}) {
+  return _then(BridgeTokenRequest(
+product: null == product ? _self.product : product // ignore: cast_nullable_to_non_nullable
+as String,provider: freezed == provider ? _self.provider : provider // ignore: cast_nullable_to_non_nullable
+as String?,companyMapping: freezed == companyMapping ? _self.companyMapping : companyMapping // ignore: cast_nullable_to_non_nullable
+as String?,account: freezed == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
+as Account?,
+  ));
+}
+/// Create a copy of BridgeTokenRequest
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AccountCopyWith<$Res>? get account {
+    if (_self.account == null) {
+    return null;
   }
 
-  /// Create a copy of BridgeTokenRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AccountCopyWith<$Res>? get account {
-    if (_value.account == null) {
-      return null;
-    }
-
-    return $AccountCopyWith<$Res>(_value.account!, (value) {
-      return _then(_value.copyWith(account: value) as $Val);
-    });
-  }
+  return $AccountCopyWith<$Res>(_self.account!, (value) {
+    return _then(_self.copyWith(account: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$BridgeTokenRequestImplCopyWith<$Res>
-    implements $BridgeTokenRequestCopyWith<$Res> {
-  factory _$$BridgeTokenRequestImplCopyWith(_$BridgeTokenRequestImpl value,
-          $Res Function(_$BridgeTokenRequestImpl) then) =
-      __$$BridgeTokenRequestImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: 'product_type') String product,
-      @JsonKey(name: 'provider_id', includeIfNull: false) String? provider,
-      @JsonKey(name: 'company_mapping_id', includeIfNull: false)
-      String? companyMapping,
-      @JsonKey(includeIfNull: false) Account? account});
 
-  @override
-  $AccountCopyWith<$Res>? get account;
+/// Adds pattern-matching-related methods to [BridgeTokenRequest].
+extension BridgeTokenRequestPatterns on BridgeTokenRequest {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _BridgeTokenRequest value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _BridgeTokenRequest() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _BridgeTokenRequest value)  $default,){
+final _that = this;
+switch (_that) {
+case _BridgeTokenRequest():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _BridgeTokenRequest value)?  $default,){
+final _that = this;
+switch (_that) {
+case _BridgeTokenRequest() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'product_type')  String product, @JsonKey(name: 'provider_id', includeIfNull: false)  String? provider, @JsonKey(name: 'company_mapping_id', includeIfNull: false)  String? companyMapping, @JsonKey(includeIfNull: false)  Account? account)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _BridgeTokenRequest() when $default != null:
+return $default(_that.product,_that.provider,_that.companyMapping,_that.account);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'product_type')  String product, @JsonKey(name: 'provider_id', includeIfNull: false)  String? provider, @JsonKey(name: 'company_mapping_id', includeIfNull: false)  String? companyMapping, @JsonKey(includeIfNull: false)  Account? account)  $default,) {final _that = this;
+switch (_that) {
+case _BridgeTokenRequest():
+return $default(_that.product,_that.provider,_that.companyMapping,_that.account);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'product_type')  String product, @JsonKey(name: 'provider_id', includeIfNull: false)  String? provider, @JsonKey(name: 'company_mapping_id', includeIfNull: false)  String? companyMapping, @JsonKey(includeIfNull: false)  Account? account)?  $default,) {final _that = this;
+switch (_that) {
+case _BridgeTokenRequest() when $default != null:
+return $default(_that.product,_that.provider,_that.companyMapping,_that.account);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-class __$$BridgeTokenRequestImplCopyWithImpl<$Res>
-    extends _$BridgeTokenRequestCopyWithImpl<$Res, _$BridgeTokenRequestImpl>
-    implements _$$BridgeTokenRequestImplCopyWith<$Res> {
-  __$$BridgeTokenRequestImplCopyWithImpl(_$BridgeTokenRequestImpl _value,
-      $Res Function(_$BridgeTokenRequestImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of BridgeTokenRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? product = null,
-    Object? provider = freezed,
-    Object? companyMapping = freezed,
-    Object? account = freezed,
-  }) {
-    return _then(_$BridgeTokenRequestImpl(
-      product: null == product
-          ? _value.product
-          : product // ignore: cast_nullable_to_non_nullable
-              as String,
-      provider: freezed == provider
-          ? _value.provider
-          : provider // ignore: cast_nullable_to_non_nullable
-              as String?,
-      companyMapping: freezed == companyMapping
-          ? _value.companyMapping
-          : companyMapping // ignore: cast_nullable_to_non_nullable
-              as String?,
-      account: freezed == account
-          ? _value.account
-          : account // ignore: cast_nullable_to_non_nullable
-              as Account?,
-    ));
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$BridgeTokenRequestImpl implements _BridgeTokenRequest {
-  _$BridgeTokenRequestImpl(
-      {@JsonKey(name: 'product_type') required this.product,
-      @JsonKey(name: 'provider_id', includeIfNull: false) this.provider,
-      @JsonKey(name: 'company_mapping_id', includeIfNull: false)
-      this.companyMapping,
-      @JsonKey(includeIfNull: false) this.account});
 
-  factory _$BridgeTokenRequestImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BridgeTokenRequestImplFromJson(json);
+class _BridgeTokenRequest implements BridgeTokenRequest {
+   _BridgeTokenRequest({@JsonKey(name: 'product_type') required this.product, @JsonKey(name: 'provider_id', includeIfNull: false) this.provider, @JsonKey(name: 'company_mapping_id', includeIfNull: false) this.companyMapping, @JsonKey(includeIfNull: false) this.account});
+  factory _BridgeTokenRequest.fromJson(Map<String, dynamic> json) => _$BridgeTokenRequestFromJson(json);
 
-  @override
-  @JsonKey(name: 'product_type')
-  final String product;
-  @override
-  @JsonKey(name: 'provider_id', includeIfNull: false)
-  final String? provider;
-  @override
-  @JsonKey(name: 'company_mapping_id', includeIfNull: false)
-  final String? companyMapping;
-  @override
-  @JsonKey(includeIfNull: false)
-  final Account? account;
+@override@JsonKey(name: 'product_type') final  String product;
+@override@JsonKey(name: 'provider_id', includeIfNull: false) final  String? provider;
+@override@JsonKey(name: 'company_mapping_id', includeIfNull: false) final  String? companyMapping;
+@override@JsonKey(includeIfNull: false) final  Account? account;
 
-  @override
-  String toString() {
+/// Create a copy of BridgeTokenRequest
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$BridgeTokenRequestCopyWith<_BridgeTokenRequest> get copyWith => __$BridgeTokenRequestCopyWithImpl<_BridgeTokenRequest>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$BridgeTokenRequestToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BridgeTokenRequest&&(identical(other.product, product) || other.product == product)&&(identical(other.provider, provider) || other.provider == provider)&&(identical(other.companyMapping, companyMapping) || other.companyMapping == companyMapping)&&(identical(other.account, account) || other.account == account));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,product,provider,companyMapping,account);
+}
+
+@override
+String toString() {
     return 'BridgeTokenRequest(product: $product, provider: $provider, companyMapping: $companyMapping, account: $account)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$BridgeTokenRequestImpl &&
-            (identical(other.product, product) || other.product == product) &&
-            (identical(other.provider, provider) ||
-                other.provider == provider) &&
-            (identical(other.companyMapping, companyMapping) ||
-                other.companyMapping == companyMapping) &&
-            (identical(other.account, account) || other.account == account));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, product, provider, companyMapping, account);
-
-  /// Create a copy of BridgeTokenRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$BridgeTokenRequestImplCopyWith<_$BridgeTokenRequestImpl> get copyWith =>
-      __$$BridgeTokenRequestImplCopyWithImpl<_$BridgeTokenRequestImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$BridgeTokenRequestImplToJson(
-      this,
-    );
-  }
 }
 
-abstract class _BridgeTokenRequest implements BridgeTokenRequest {
-  factory _BridgeTokenRequest(
-          {@JsonKey(name: 'product_type') required final String product,
-          @JsonKey(name: 'provider_id', includeIfNull: false)
-          final String? provider,
-          @JsonKey(name: 'company_mapping_id', includeIfNull: false)
-          final String? companyMapping,
-          @JsonKey(includeIfNull: false) final Account? account}) =
-      _$BridgeTokenRequestImpl;
 
-  factory _BridgeTokenRequest.fromJson(Map<String, dynamic> json) =
-      _$BridgeTokenRequestImpl.fromJson;
-
-  @override
-  @JsonKey(name: 'product_type')
-  String get product;
-  @override
-  @JsonKey(name: 'provider_id', includeIfNull: false)
-  String? get provider;
-  @override
-  @JsonKey(name: 'company_mapping_id', includeIfNull: false)
-  String? get companyMapping;
-  @override
-  @JsonKey(includeIfNull: false)
-  Account? get account;
-
-  /// Create a copy of BridgeTokenRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$BridgeTokenRequestImplCopyWith<_$BridgeTokenRequestImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
-BridgeTokenResponse _$BridgeTokenResponseFromJson(Map<String, dynamic> json) {
-  return _BridgeTokenResponse.fromJson(json);
+/// @nodoc
+abstract mixin class _$BridgeTokenRequestCopyWith<$Res> implements $BridgeTokenRequestCopyWith<$Res> {
+  factory _$BridgeTokenRequestCopyWith(_BridgeTokenRequest value, $Res Function(_BridgeTokenRequest) _then) = __$BridgeTokenRequestCopyWithImpl;
+@override @useResult
+$Res call({
+@JsonKey(name: 'product_type') String product,@JsonKey(name: 'provider_id', includeIfNull: false) String? provider,@JsonKey(name: 'company_mapping_id', includeIfNull: false) String? companyMapping,@JsonKey(includeIfNull: false) Account? account
+});
+
+
+@override $AccountCopyWith<$Res>? get account;
+
 }
+/// @nodoc
+class __$BridgeTokenRequestCopyWithImpl<$Res>
+    implements _$BridgeTokenRequestCopyWith<$Res> {
+  __$BridgeTokenRequestCopyWithImpl(this._self, this._then);
+
+  final _BridgeTokenRequest _self;
+  final $Res Function(_BridgeTokenRequest) _then;
+
+/// Create a copy of BridgeTokenRequest
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? product = null,Object? provider = freezed,Object? companyMapping = freezed,Object? account = freezed,}) {
+  return _then(_BridgeTokenRequest(
+product: null == product ? _self.product : product // ignore: cast_nullable_to_non_nullable
+as String,provider: freezed == provider ? _self.provider : provider // ignore: cast_nullable_to_non_nullable
+as String?,companyMapping: freezed == companyMapping ? _self.companyMapping : companyMapping // ignore: cast_nullable_to_non_nullable
+as String?,account: freezed == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
+as Account?,
+  ));
+}
+
+/// Create a copy of BridgeTokenRequest
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AccountCopyWith<$Res>? get account {
+    if (_self.account == null) {
+    return null;
+  }
+
+  return $AccountCopyWith<$Res>(_self.account!, (value) {
+    return _then(_self.copyWith(account: value));
+  });
+}
+}
+
 
 /// @nodoc
 mixin _$BridgeTokenResponse {
-  @JsonKey(name: 'bridge_token')
-  String get bridgeToken => throw _privateConstructorUsedError;
+
+@JsonKey(name: 'bridge_token') String get bridgeToken;
+/// Create a copy of BridgeTokenResponse
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$BridgeTokenResponseCopyWith<BridgeTokenResponse> get copyWith => _$BridgeTokenResponseCopyWithImpl<BridgeTokenResponse>(this as BridgeTokenResponse, _$identity);
 
   /// Serializes this BridgeTokenResponse to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of BridgeTokenResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $BridgeTokenResponseCopyWith<BridgeTokenResponse> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  final _this = this as BridgeTokenResponse;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BridgeTokenResponse&&(identical(other.bridgeToken, _this.bridgeToken) || other.bridgeToken == _this.bridgeToken));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+  final _this = this as BridgeTokenResponse;
+  return Object.hash(runtimeType,_this.bridgeToken);
+}
+
+@override
+String toString() {
+  final _this = this as BridgeTokenResponse;
+  return 'BridgeTokenResponse(bridgeToken: ${_this.bridgeToken})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $BridgeTokenResponseCopyWith<$Res> {
-  factory $BridgeTokenResponseCopyWith(
-          BridgeTokenResponse value, $Res Function(BridgeTokenResponse) then) =
-      _$BridgeTokenResponseCopyWithImpl<$Res, BridgeTokenResponse>;
-  @useResult
-  $Res call({@JsonKey(name: 'bridge_token') String bridgeToken});
-}
+abstract mixin class $BridgeTokenResponseCopyWith<$Res>  {
+  factory $BridgeTokenResponseCopyWith(BridgeTokenResponse value, $Res Function(BridgeTokenResponse) _then) = _$BridgeTokenResponseCopyWithImpl;
+@useResult
+$Res call({
+@JsonKey(name: 'bridge_token') String bridgeToken
+});
 
+
+
+
+}
 /// @nodoc
-class _$BridgeTokenResponseCopyWithImpl<$Res, $Val extends BridgeTokenResponse>
+class _$BridgeTokenResponseCopyWithImpl<$Res>
     implements $BridgeTokenResponseCopyWith<$Res> {
-  _$BridgeTokenResponseCopyWithImpl(this._value, this._then);
+  _$BridgeTokenResponseCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final BridgeTokenResponse _self;
+  final $Res Function(BridgeTokenResponse) _then;
 
-  /// Create a copy of BridgeTokenResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? bridgeToken = null,
-  }) {
-    return _then(_value.copyWith(
-      bridgeToken: null == bridgeToken
-          ? _value.bridgeToken
-          : bridgeToken // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of BridgeTokenResponse
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? bridgeToken = null,}) {
+  return _then(BridgeTokenResponse(
+bridgeToken: null == bridgeToken ? _self.bridgeToken : bridgeToken // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$BridgeTokenResponseImplCopyWith<$Res>
-    implements $BridgeTokenResponseCopyWith<$Res> {
-  factory _$$BridgeTokenResponseImplCopyWith(_$BridgeTokenResponseImpl value,
-          $Res Function(_$BridgeTokenResponseImpl) then) =
-      __$$BridgeTokenResponseImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@JsonKey(name: 'bridge_token') String bridgeToken});
 }
 
-/// @nodoc
-class __$$BridgeTokenResponseImplCopyWithImpl<$Res>
-    extends _$BridgeTokenResponseCopyWithImpl<$Res, _$BridgeTokenResponseImpl>
-    implements _$$BridgeTokenResponseImplCopyWith<$Res> {
-  __$$BridgeTokenResponseImplCopyWithImpl(_$BridgeTokenResponseImpl _value,
-      $Res Function(_$BridgeTokenResponseImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of BridgeTokenResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? bridgeToken = null,
-  }) {
-    return _then(_$BridgeTokenResponseImpl(
-      bridgeToken: null == bridgeToken
-          ? _value.bridgeToken
-          : bridgeToken // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Adds pattern-matching-related methods to [BridgeTokenResponse].
+extension BridgeTokenResponsePatterns on BridgeTokenResponse {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _BridgeTokenResponse value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _BridgeTokenResponse() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _BridgeTokenResponse value)  $default,){
+final _that = this;
+switch (_that) {
+case _BridgeTokenResponse():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _BridgeTokenResponse value)?  $default,){
+final _that = this;
+switch (_that) {
+case _BridgeTokenResponse() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'bridge_token')  String bridgeToken)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _BridgeTokenResponse() when $default != null:
+return $default(_that.bridgeToken);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'bridge_token')  String bridgeToken)  $default,) {final _that = this;
+switch (_that) {
+case _BridgeTokenResponse():
+return $default(_that.bridgeToken);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'bridge_token')  String bridgeToken)?  $default,) {final _that = this;
+switch (_that) {
+case _BridgeTokenResponse() when $default != null:
+return $default(_that.bridgeToken);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$BridgeTokenResponseImpl implements _BridgeTokenResponse {
-  _$BridgeTokenResponseImpl(
-      {@JsonKey(name: 'bridge_token') required this.bridgeToken});
 
-  factory _$BridgeTokenResponseImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BridgeTokenResponseImplFromJson(json);
+class _BridgeTokenResponse implements BridgeTokenResponse {
+   _BridgeTokenResponse({@JsonKey(name: 'bridge_token') required this.bridgeToken});
+  factory _BridgeTokenResponse.fromJson(Map<String, dynamic> json) => _$BridgeTokenResponseFromJson(json);
 
-  @override
-  @JsonKey(name: 'bridge_token')
-  final String bridgeToken;
+@override@JsonKey(name: 'bridge_token') final  String bridgeToken;
 
-  @override
-  String toString() {
+/// Create a copy of BridgeTokenResponse
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$BridgeTokenResponseCopyWith<_BridgeTokenResponse> get copyWith => __$BridgeTokenResponseCopyWithImpl<_BridgeTokenResponse>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$BridgeTokenResponseToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BridgeTokenResponse&&(identical(other.bridgeToken, bridgeToken) || other.bridgeToken == bridgeToken));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,bridgeToken);
+}
+
+@override
+String toString() {
     return 'BridgeTokenResponse(bridgeToken: $bridgeToken)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$BridgeTokenResponseImpl &&
-            (identical(other.bridgeToken, bridgeToken) ||
-                other.bridgeToken == bridgeToken));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, bridgeToken);
-
-  /// Create a copy of BridgeTokenResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$BridgeTokenResponseImplCopyWith<_$BridgeTokenResponseImpl> get copyWith =>
-      __$$BridgeTokenResponseImplCopyWithImpl<_$BridgeTokenResponseImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$BridgeTokenResponseImplToJson(
-      this,
-    );
-  }
 }
 
-abstract class _BridgeTokenResponse implements BridgeTokenResponse {
-  factory _BridgeTokenResponse(
-          {@JsonKey(name: 'bridge_token') required final String bridgeToken}) =
-      _$BridgeTokenResponseImpl;
 
-  factory _BridgeTokenResponse.fromJson(Map<String, dynamic> json) =
-      _$BridgeTokenResponseImpl.fromJson;
-
-  @override
-  @JsonKey(name: 'bridge_token')
-  String get bridgeToken;
-
-  /// Create a copy of BridgeTokenResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$BridgeTokenResponseImplCopyWith<_$BridgeTokenResponseImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+abstract mixin class _$BridgeTokenResponseCopyWith<$Res> implements $BridgeTokenResponseCopyWith<$Res> {
+  factory _$BridgeTokenResponseCopyWith(_BridgeTokenResponse value, $Res Function(_BridgeTokenResponse) _then) = __$BridgeTokenResponseCopyWithImpl;
+@override @useResult
+$Res call({
+@JsonKey(name: 'bridge_token') String bridgeToken
+});
+
+
+
+
+}
+/// @nodoc
+class __$BridgeTokenResponseCopyWithImpl<$Res>
+    implements _$BridgeTokenResponseCopyWith<$Res> {
+  __$BridgeTokenResponseCopyWithImpl(this._self, this._then);
+
+  final _BridgeTokenResponse _self;
+  final $Res Function(_BridgeTokenResponse) _then;
+
+/// Create a copy of BridgeTokenResponse
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? bridgeToken = null,}) {
+  return _then(_BridgeTokenResponse(
+bridgeToken: null == bridgeToken ? _self.bridgeToken : bridgeToken // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

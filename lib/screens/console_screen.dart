@@ -1,10 +1,10 @@
 import 'package:truv_demo_flutter/providers/console_state.dart';
 import 'package:truv_demo_flutter/widgets/title.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ConsoleScreen extends ConsumerWidget {
-  const ConsoleScreen({Key? key}) : super(key: key);
+  const ConsoleScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

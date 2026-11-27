@@ -1,13 +1,13 @@
 import 'package:truv_demo_flutter/providers/products_state.dart';
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AdditionalSettings extends ConsumerStatefulWidget {
   const AdditionalSettings({super.key});
 
   @override
-  _AdditionalSettingsState createState() => _AdditionalSettingsState();
+  ConsumerState<AdditionalSettings> createState() => _AdditionalSettingsState();
 }
 
 class _AdditionalSettingsState extends ConsumerState<AdditionalSettings> {
